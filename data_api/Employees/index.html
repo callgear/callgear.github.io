@@ -1,0 +1,4319 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>Employees - DATA API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-employees-list" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="DATA API" class="md-header-nav__button md-logo" aria-label="DATA API">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            DATA API
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Employees
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DATA API" class="md-nav__button md-logo" aria-label="DATA API">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DATA API
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Changelog/" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      General Information
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Account/" class="md-nav__link">
+      Account
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../VirtualNumbers/" class="md-nav__link">
+      Virtual Numbers
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../SipLines/" class="md-nav__link">
+      SIP-lines
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Scenarios/" class="md-nav__link">
+      Scenarios
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../UserMedia/" class="md-nav__link">
+      Media
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Campaigns/" class="md-nav__link">
+      Ad Campaigns
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Sites/" class="md-nav__link">
+      Sites
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Reports/" class="md-nav__link">
+      Reports
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tags/" class="md-nav__link">
+      Tags
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Employees
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Employees
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-employees-list" class="md-nav__link">
+    Getting employees list
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting employees list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-employees" class="md-nav__link">
+    Creating employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_1" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_1" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_1" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_1" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_1" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-an-employee" class="md-nav__link">
+    Deleting an employee
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting an employee">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_2" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_2" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_2" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_2" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-an-employee" class="md-nav__link">
+    Updating an employee
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating an employee">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_3" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_3" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_3" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_3" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-groups-of-employees" class="md-nav__link">
+    Creating groups of employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating groups of employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_4" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_2" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_4" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_4" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_4" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-groups-of-employees" class="md-nav__link">
+    Deleting groups of employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting groups of employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_5" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_5" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_5" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_5" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-groups-of-employees" class="md-nav__link">
+    Updating groups of employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating groups of employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_6" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_6" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_6" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_6" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-employees-groups" class="md-nav__link">
+    Getting a list of employees groups
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of employees groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_7" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_3" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_7" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_7" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_7" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-and-priority-and-availability-of-an-employees-phone-number-in-an-employees-group" class="md-nav__link">
+    Updating and priority and availability of an employee's phone number in an employees group
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating and priority and availability of an employee's phone number in an employees group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_8" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_8" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_8" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_8" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-list-of-employees-positions" class="md-nav__link">
+    Getting the list of employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting the list of employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_9" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_4" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_9" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_9" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_9" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-employees-positions" class="md-nav__link">
+    Creating employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_10" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_5" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_10" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_10" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_10" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-employees-positions" class="md-nav__link">
+    Updating employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_11" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_11" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_11" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_11" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-employees-positions" class="md-nav__link">
+    Deleting employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_12" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_12" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_12" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_12" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Contacts/" class="md-nav__link">
+      Contacts
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Schedules/" class="md-nav__link">
+      Schedules
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../report/campaign_daily_stat/" class="md-nav__link">
+      Ad Campaigns Daily Reports
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Partners/" class="md-nav__link">
+      Agents’ Customers
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Communications/" class="md-nav__link">
+      Communications
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-employees-list" class="md-nav__link">
+    Getting employees list
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting employees list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-employees" class="md-nav__link">
+    Creating employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_1" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_1" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_1" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_1" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_1" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-an-employee" class="md-nav__link">
+    Deleting an employee
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting an employee">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_2" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_2" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_2" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_2" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-an-employee" class="md-nav__link">
+    Updating an employee
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating an employee">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_3" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_3" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_3" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_3" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-groups-of-employees" class="md-nav__link">
+    Creating groups of employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating groups of employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_4" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_2" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_4" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_4" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_4" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-groups-of-employees" class="md-nav__link">
+    Deleting groups of employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting groups of employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_5" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_5" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_5" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_5" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-groups-of-employees" class="md-nav__link">
+    Updating groups of employees
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating groups of employees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_6" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_6" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_6" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_6" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-employees-groups" class="md-nav__link">
+    Getting a list of employees groups
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of employees groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_7" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_3" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_7" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_7" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_7" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-and-priority-and-availability-of-an-employees-phone-number-in-an-employees-group" class="md-nav__link">
+    Updating and priority and availability of an employee's phone number in an employees group
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating and priority and availability of an employee's phone number in an employees group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_8" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_8" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_8" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_8" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-list-of-employees-positions" class="md-nav__link">
+    Getting the list of employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting the list of employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_9" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_4" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_9" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_9" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_9" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-employees-positions" class="md-nav__link">
+    Creating employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_10" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_5" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_10" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_10" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_10" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-employees-positions" class="md-nav__link">
+    Updating employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_11" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_11" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_11" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_11" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-employees-positions" class="md-nav__link">
+    Deleting employees positions
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting employees positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_12" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_12" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_12" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_12" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Employees</h1>
+                
+                <p><a name="get_employees"></a></p>
+<h2 id="getting-employees-list">Getting employees list</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>get.employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Getting employees list</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+<tr>
+<td align="left"><code>limit</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Number of returning inquiries. Refer to <a href="..#_paging">"Paging"</a></td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Offset that defines inquiries from which number to return, <code>"limit"</code> of inquiries. Default value is "0". Refer to <a href="..#_paging">"Paging"</a></td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">object</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_filters">"Filtering criteria"</a></td>
+</tr>
+<tr>
+<td align="left"><code>fields</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_views">"Viewing returning data"</a></td>
+</tr>
+<tr>
+<td align="left"><code>sort</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_sort">"Data sorting"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-reply">Parameters of a reply</h3>
+<table>
+    <thead>
+        <tr>
+            <th align="left">Title</th>
+            <th align="left">Type</th>
+            <th align="left">Valid value</th>
+            <th align="left">Filtering</th>
+            <th align="left">Sorting</th>
+            <th align="left">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="left"><code>id</code></td>
+            <td align="left">number</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Unique employee ID</td>
+        </tr>
+        <tr>
+            <td align="left"><code>first_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left">yes</td>
+            <td align="left">Employee's first name</td>
+        </tr>
+        <tr>
+            <td align="left"><code>last_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left">yes</td>
+            <td align="left">Employee's last name</td>
+        </tr>
+        <tr>
+            <td align="left"><code>patronymic</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left">Employee's patronymic</td>
+        </tr>
+        <tr>
+            <td align="left"><code>full_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left">yes</td>
+            <td align="left">Employee's full name</td>
+        </tr>
+        <tr>
+            <td align="left"><code>status</code></td>
+            <td align="left">enum</td>
+            <td align="left">
+            <ul>
+                <li>available</li>
+                <li>break</li>
+                <li>do_not_disturb</li>
+                <li>not_at_workplace</li>
+                <li>not_at_work</li>
+                <li>unknown</li>
+            </ul>
+            </td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Employee's status
+            <ul>
+                <li>available - Available</li>
+                <li>break - On a break</li>
+                <li>do_not_disturb - Do not disturb</li>
+                <li>not_at_workplace - Not at workplace</li>
+                <li>not_at_work - Not at work</li>
+                <li>unknown - Unknown</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td align="left"><code>allowed_in_call_types</code></td>
+            <td align="left">array</td>
+            <td align="left">
+            <ul>
+                <li>internal</li>
+                <li>external</li>
+            </ul>
+            </td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Types of incoming calls allowed to an employee
+            <ul>
+                <li>internal - internal calls from company's employees/li>
+                <li>external - external calls from clients</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td align="left"><code>allowed_out_call_types</code></td>
+            <td align="left">array</td>
+            <td align="left">
+            <ul>
+                <li>internal</li>
+                <li>external</li>
+            </ul>
+            </td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Types of outgoing calls allowed to an employee
+            <ul>
+                <li>internal - internal calls to company's employees</li>
+                <li>external - external calls beyond the company</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td align="left"><code>email</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Employee's email</td>
+        </tr>
+        <tr>
+            <td align="left"><code>call_recording</code></td>
+            <td align="left">enum</td>
+            <td align="left">
+                <ul>
+                    <li><code>all</code> - for all calls;</li>
+                    <li><code>in</code> - only incoming calls;</li>
+                    <li><code>out</code> - only outgoing calls;</li>
+                    <li><code>off</code> - switched off</li>
+                </ul>
+            </td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Call recording status</td>
+        </tr>
+        <tr>
+            <td align="left"><code>calls_available</code></td>
+            <td align="left">boolean</td>
+            <td align="left"><code>true</code>, <code>false</code></td>
+            <td align="left">yes</td>
+            <td align="left">yes</td>
+            <td align="left">
+            <blockquote>This parameter will be deleted soon. Instead, use the parameters: allowed_in_call_types, allowed_out_call_types</blockquote>
+            Avaialibity for calls
+            </td>
+        </tr>
+        <tr>
+            <td align="left"><code>schedule_id</code></td>
+            <td align="left">number</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Schedule ID</td>
+        </tr>
+        <tr>
+            <td align="left"><code>schedule_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Schedule name</td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">Coach</td>
+        </tr>
+        <tr>
+            <td align="left"><code>coach</code></td>
+            <td align="left">object</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Coach for an employee</td>
+        </tr>
+        <tr>
+            <td align="left"><code>coach_full_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Full name of a coach</td>
+        </tr>
+        <tr>
+            <td align="left"><code>coach_id</code></td>
+            <td align="left">number</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Unique ID of a coach <blockquote>You can choose it from an employees list</blockquote></td>
+        </tr>
+        <tr>
+            <td align="left"><code>coach_always_enabled</code></td>
+            <td align="left">boolean</td>
+            <td align="left"><code>true</code>, <code>false</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">As you enable this option, all emloyee's calls will also be duplicated for his or hers coach.</td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">Employees groups</td>
+        </tr>
+        <tr>
+            <td align="left"><code>groups</code></td>
+            <td align="left">array</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Groups an employee belongs to</td>
+        </tr>
+        <tr>
+            <td align="left"><code>group_id</code></td>
+            <td align="left">number</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Group ID</td>
+        </tr>
+        <tr>
+            <td align="left"><code>group_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Group name</td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">Phone numbers</td>
+        </tr>
+        <tr>
+            <td align="left"><code>phone_numbers</code></td>
+            <td align="left">array</td>
+            <td align="left">10</td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">List of employee's phone numbers. <blockquote>List of numbers should be sorted as according to the order of priority.</blockquote></td>
+        </tr>
+        <tr>
+            <td align="left"><code>phone_number</code></td>
+            <td align="left">string</td>    
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">
+                Employee's phone number. Its format may allow extension dialing, such as
+                <code>"74955140578...2345"</code>, that is why the number may not comply with the standart E164.
+                <blockquote>
+                    If SIP already exists, we do not identify it with the number. Instead we just add the number as a PSTN number, i.e. a usual number.
+                </blockquote>   
+            </td>
+        </tr>
+        <tr>
+            <td align="left"><code>channels_count</code></td>
+            <td align="left">number</td>
+            <td align="left">From 1 to 150</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Default value is <code>"1"</code>. Number of telephone lines</td>
+        </tr>
+        <tr>
+            <td align="left"><code>dial_time</code></td>
+            <td align="left">number</td>
+            <td align="left">From 1 to 100</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Default value is <code>"60"</code>. Time for dialing. Value is in seconds.</td>
+        </tr>
+        <tr>
+            <td align="left"><code>status</code></td>
+            <td align="left">enum</td>
+            <td align="left"><code>active</code>, <code>inactive</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Default value is <code>"active"</code>. Number status.</td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">Extension phone number</td>
+        </tr>
+        <tr>
+            <td align="left"><code>extension</code></td>
+            <td align="left">object</td>
+            <td align="left"></td>
+            <td align="left">yes</td>
+            <td align="left"></td>
+            <td align="left">Extension phone number and its settings</td>
+        </tr>
+        <tr>
+            <td align="left"><code>extension_phone_number</code></td>
+            <td align="left">string</td>
+            <td align="left">Maximum length is 5</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Extension phone number</td>
+        </tr>
+        <tr>
+            <td align="left"><code>extension_voice_mail_enabled</code></td>
+            <td align="left">boolean</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">In case all the numbers in an employee's phone numbers list are busy, a caller can leave a voice message.</td>
+        </tr>
+        <tr>
+            <td align="left"><code>extension_queue_enabled</code></td>
+            <td align="left">boolean</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">In case all the numbers, attributed to an employee in a list, are busy, a caller can get in line for a redial to phone numbers in a list. Than, he or she will wait for the first number to become available.</td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">Employee is an operator of a chat</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator</code></td>
+            <td align="left">object</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Operatot of a workplace</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_display_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Operator's name in chat</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_login</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Operator's login for the app "Opeartor's workplace"</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_position_id</code></td>
+            <td align="left">number</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Operator's job position ID</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_position_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Operator's job position name</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_offline_message_enabled</code></td>
+            <td align="left">boolean</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Authorized to process offline messages or not</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_invite_to_chat_enabled</code></td>
+            <td align="left">boolean</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Authorized to invite to join chats or not</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_chat_enabled</code></td>
+            <td align="left">boolean</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Authorized to participate in chats with visitors or not</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_chats_available</code></td>
+            <td align="left">boolean</td>
+            <td align="left"><code>true</code>, <code>false</code></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Available for chats</td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">Website</td>
+        </tr>
+        <tr>
+            <td align="left"><code>operator_sites</code></td>
+            <td align="left">array</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">List of websites unique IDs and addresses that have access to an operator</td>
+        </tr>
+        <tr>
+            <td align="left"><code>site_id</code></td>
+            <td align="left">number</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Website ID</td>
+        </tr>
+        <tr>
+            <td align="left"><code>site_domain_name</code></td>
+            <td align="left">string</td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left"></td>
+            <td align="left">Website domain name without protocol - <code>"http://"</code> or <code>"https://"</code>.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;offset&quot;:&quot;number&quot;,
+    &quot;limit&quot;:&quot;number&quot;,
+    &quot;filter&quot;:{
+
+    },
+    &quot;sort&quot;:[
+      {
+        &quot;field&quot;:&quot;string&quot;,
+        &quot;order&quot;:&quot;string&quot;
+      }
+    ],
+    &quot;fields&quot;:[
+      &quot;string&quot;
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+    &quot;metadata&quot;:{
+
+    },
+    &quot;data&quot;:[
+      {
+        &quot;id&quot;:&quot;number&quot;,
+        &quot;first_name&quot;:&quot;string&quot;,
+        &quot;last_name&quot;:&quot;string&quot;,
+        &quot;patronymic&quot;:&quot;string&quot;,
+        &quot;full_name&quot;:&quot;string&quot;,
+        &quot;email&quot;:&quot;string&quot;,
+        &quot;status&quot;: &quot;enum&quot;,
+        &quot;allowed_in_call_types&quot;: &quot;array&quot;,
+        &quot;allowed_out_call_types&quot;: &quot;array&quot;,
+        &quot;groups&quot;:[
+          {
+            &quot;group_id&quot;:&quot;number&quot;,
+            &quot;group_name&quot;:&quot;string&quot;
+          }
+        ],
+        &quot;call_recording&quot;:&quot;enum&quot;,
+        &quot;calls_available&quot;:&quot;boolean&quot;,
+        &quot;schedule_id&quot;:&quot;number&quot;,
+        &quot;schedule_name&quot;:&quot;string&quot;,
+        &quot;coach&quot;:{
+          &quot;coach_id&quot;:&quot;number&quot;,
+          &quot;coach_full_name&quot;:&quot;string&quot;,
+          &quot;coach_always_enabled&quot;:&quot;boolean&quot;
+        },
+        &quot;phone_numbers&quot;:[
+          {
+            &quot;phone_number&quot;:&quot;string&quot;,
+            &quot;channels_count&quot;:&quot;number&quot;,
+            &quot;dial_time&quot;:&quot;number&quot;,
+            &quot;status&quot;:&quot;enum&quot;
+          }
+        ],
+        &quot;extension&quot;:{
+          &quot;extension_phone_number&quot;:&quot;string&quot;,
+          &quot;extension_voice_mail_enabled&quot;:&quot;boolean&quot;,
+          &quot;extension_queue_enabled&quot;:&quot;boolean&quot;
+        },
+        &quot;operator&quot;:{
+          &quot;operator_login&quot;:&quot;string&quot;,
+          &quot;operator_display_name&quot;: &quot;string&quot;,
+          &quot;operator_position_id&quot;:&quot;number&quot;,
+          &quot;operator_position_name&quot;:&quot;string&quot;,
+          &quot;operator_offline_message_enabled&quot;:&quot;boolean&quot;,
+          &quot;operator_invite_to_chat_enabled&quot;:&quot;boolean&quot;,
+          &quot;operator_chat_enabled&quot;:&quot;boolean&quot;,
+          &quot;operator_chats_available&quot;:&quot;boolean&quot;,
+          &quot;operator_sites&quot;:[
+            {
+              &quot;site_id&quot;:&quot;number&quot;,
+              &quot;site_domain_name&quot;:&quot;string&quot;
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors">List of returning errors</h3>
+<p>Refer to <a href="..#_getErrors">"List of errors for methods with the verb get"</a></p>
+<h2 id="creating-employees">Creating employees</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>create.employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Creating employees</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_1">Parameters of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Valid value</th>
+            <th>Descriprion</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+        </tr>
+        <tr>
+            <td><code>first_name</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee first name</td>
+        </tr>
+        <tr>
+            <td><code>last_name</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Employee last name</td>
+        </tr>
+        <tr>
+            <td><code>patronymic</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee patronymic name</td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+            <ul>
+                <li>available</li>
+                <li>break</li>
+                <li>do_not_disturb</li>
+                <li>not_at_workplace</li>
+                <li>not_at_work</li>
+                <li>unknown</li>
+            </ul>
+            </td>
+            <td>Employee status
+            <ul>
+                <li>available - Available</li>
+                <li>break - On a break</li>
+                <li>do_not_disturb - Do not disturb</li>
+                <li>not_at_workplace - Not at workplace</li>
+                <li>not_at_work - Not at work</li>
+                <li>unknown - Unknown</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>allowed_in_call_types</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td>
+            <ul>
+                <li>internal</li>
+                <li>external</li>
+            </ul>
+            </td><td>Types of incoming calls allowed to an employee
+            <ul>
+                <li>internal - internal calls to company's employees</li>
+                <li>external - external calls beyond the company</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>allowed_out_call_types</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td>
+            <ul>
+                <li>internal</li>
+                <li>external</li>
+            </ul>
+            </td>
+            <td>Types of outgoing calls allowed to an employee
+            <ul>
+                <li>internal - internal calls to company's employees</li>
+                <li>external - external calls beyond the company</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>email</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td></td>
+            <td>Employees email</td>
+        </tr>
+        <tr>
+            <td><code>call_recording</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+                <ul>
+                    <li><code>all</code> - for all calls;</li>
+                    <li><code>in</code> - only incoming calls;</li>
+                    <li><code>out</code> - only outgoing calls;</li>
+                    <li><code>off</code> -
+                switched off</li>
+                </ul>
+            </td>
+            <td>Default value is <code>"all"</code>. Status of call recording <blockquote>Depends on the component "recording"</blockquote></td>
+        </tr>
+        <tr>
+            <td><code>schedule_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Activity schedule</td>
+        </tr>
+        <tr>
+            <td><code>calls_available</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+            <blockquote>Parameter will be deleted shortly. Instead, use the parameters: allowed_in_call_types, allowed_out_call_types</blockquote>
+            Default value is <code>"true"</code>. Availability for calls 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Coach</td>
+        </tr>
+        <tr>
+            <td><code>coach</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>Coach for an employee <blockquote>Depends on the component <code>"trainer"</code></blockquote></td>
+        </tr>
+        <tr>
+            <td><code>coach_always_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+                Default value is <code>"false"</code>. As you enable this option, all emloyee's calls will also be duplicated for his or hers coach.
+                <blockquote>Value <code>"true"</code> can be set if the parameter <code>"coach_id"</code> is given.</blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>coach_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>Coach unique ID</td>
+        </tr>
+        <tr>
+            <td colspan="5">Groups an employee belongs to</td>
+        </tr>
+        <tr>
+            <td><code>groups</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>List of unique IDs of groups an employee belongs to.</td>
+        </tr>
+        <tr>
+            <td colspan="5">Phone numbers</td>
+        </tr>
+        <tr>
+            <td><code>phone_numbers</code></td>
+            <td>array</td>
+            <td>yes</td>
+            <td>10</td>
+            <td>List of employee's phone numbers. <blockquote>It is important to know that when you create a new employee, his or hers number may already be attributed to another employee. In this case, when new parameters are set for this new number, they will be also updated for the existing number.</blockquote></td>
+        </tr>
+        <tr>
+            <td><code>phone_number</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+                Employee's phone number. Its format may allow extension dialing, such as
+                <code>"74955140578...2345"</code>, that is why the number may not comply with the standart E164.
+                <blockquote>If SIP already exists, we do not identify it with the number. Instead we just add the number as a PSTN number, i.e. a usual number.</blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>channels_count</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 1 to 150</td>
+            <td>Default value is <code>"1"</code>. Number of phone lines.</td>
+        </tr>
+        <tr>
+            <td><code>dial_time</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>From 1 to 100</td>
+            <td>Default value is <code>"60"</code>. Time for dialing.
+Value is in seconds.</td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td><code>active</code>, <code>inactive</code></td>
+            <td>Default value is <code>"active"</code>. Phone number status.</td>
+        </tr>
+        <tr>
+            <td colspan="5">Extension number</td>
+        </tr>
+        <tr>
+            <td><code>extension</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee's extension number</td>
+        </tr>
+        <tr>
+            <td><code>extension_phone_number</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td>Maximum length is 5</td>
+            <td>Extension number</td>
+        </tr>
+        <tr>
+            <td><code>extension_voice_mail_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+                Default value is <code>"false"</code>.<br>
+                In case all the numbers in an employee's phone numbers list are busy, a caller can leave a voice message.
+            </td>
+        </tr>
+        <tr>
+            <td><code>extension_queue_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+                Default value is  <code>"false"</code>.<br>
+                In case all the numbers, attributed to an employee in a list, are busy, a caller can get in line for a redial to phone numbers in a list. Than, he or she will wait for the first number to become available.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Whether an employee is a chat operator or not</td>
+        </tr>
+        <tr>
+            <td><code>operator</code></td>
+            <td>object</td>
+            <td>not</td>
+            <td></td>
+            <td>Workplace operator <blockquote>Depends on the component <code>"consultant"</code></blockquote></td>
+        </tr>
+        <tr>
+            <td><code>operator_display_name</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Operator's name as displayed in chats</td>
+        </tr>
+        <tr>
+            <td><code>operator_login</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Operator's login for the app "Operator's workplace"</td>
+        </tr>
+        <tr>
+            <td><code>operator_password</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td>Maximum length is 8</td>
+            <td>Operator's password for the app "Operator's workplace"</td>
+        </tr>
+        <tr>
+            <td><code>operator_position_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee's position</td>
+        </tr>
+        <tr>
+            <td><code>operator_offline_message_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>Default value is <code>"false"</code>. Authorized to process offline messages or not</td>
+        </tr>
+        <tr>
+            <td><code>operator_invite_to_chat_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>Default value is <code>"false"</code>. Authorized to invite to join chats or not</td>
+        </tr>
+        <tr>
+            <td><code>operator_chat_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>Default value is <code>"true"</code>. Authorized to participate in chats with visitors or not</td>
+        </tr>
+        <tr>
+            <td><code>operator_sites</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>List of websites unique IDs and addresses that have access to an employee.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="parameters-of-a-reply_1">Parameters of a reply</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Employee's unique ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_1">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;create.employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;first_name&quot;:&quot;string&quot;,
+    &quot;last_name&quot;:&quot;string&quot;,
+    &quot;patronymic&quot;:&quot;string&quot;,
+    &quot;status&quot;: &quot;enum&quot;,
+    &quot;allowed_in_call_types&quot;: &quot;array&quot;,
+    &quot;allowed_out_call_types&quot;: &quot;array&quot;,
+    &quot;email&quot;:&quot;string&quot;,
+    &quot;groups&quot;:[
+      &quot;group_id&quot;
+    ],
+    &quot;call_recording&quot;:&quot;enum&quot;,
+    &quot;calls_available&quot;:&quot;boolean&quot;,
+    &quot;schedule_id&quot;:&quot;number&quot;,
+    &quot;coach&quot;:{
+      &quot;coach_always_enabled&quot;:&quot;boolean&quot;,
+      &quot;coach_id&quot;:&quot;number&quot;
+    },
+    &quot;phone_numbers&quot;:[
+      {
+        &quot;phone_number&quot;:&quot;string&quot;,
+        &quot;channels_count&quot;:&quot;number&quot;,
+        &quot;dial_time&quot;:&quot;number&quot;,
+        &quot;status&quot;:&quot;enum&quot;
+      }
+    ],
+    &quot;extension&quot;:{
+      &quot;extension_phone_number&quot;:&quot;string&quot;,
+      &quot;extension_voice_mail_enabled&quot;:&quot;boolean&quot;,
+      &quot;extension_queue_enabled&quot;:&quot;boolean&quot;
+    },
+    &quot;operator&quot;:{
+      &quot;operator_login&quot;:&quot;string&quot;,
+      &quot;operator_display_name&quot;: &quot;string&quot;,
+      &quot;operator_password&quot;:&quot;string&quot;,
+      &quot;operator_position_id&quot;:&quot;number&quot;,
+      &quot;operator_offline_message_enabled&quot;:&quot;boolean&quot;,
+      &quot;operator_invite_to_chat_enabled&quot;:&quot;boolean&quot;,
+      &quot;operator_chat_enabled&quot;:&quot;boolean&quot;,
+      &quot;operator_sites&quot;:[
+        &quot;site_id&quot;
+      ]
+    }
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_1">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+    &quot;id&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_1">List of returning errors</h3>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb create"</a></p>
+<h2 id="deleting-an-employee">Deleting an employee</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>delete.employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Deleting an employee</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_2">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Employee's unique ID</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_2">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;delete.employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;id&quot;:&quot;number&quot;,
+    &quot;user_id&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_2">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_2">List of returning errors</h3>
+<p>Refer to <a href="..#_deleteErrors">"List of errors for methods with the verb delete"</a></p>
+<h2 id="updating-an-employee">Updating an employee</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>update.employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">::Creating employee::</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You can update partially. If a bulk of data is updated, it will replace an existing one.</p>
+</blockquote>
+<h3 id="parameters-of-a-request_3">Parameters of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Valid value</th>
+            <th>Descriprion</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>Employee's unique ID</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+        </tr>
+        <tr>
+            <td><code>first_name</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee's first name</td>
+        </tr>
+        <tr>
+            <td><code>last_name</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Employee's last name</td>
+        </tr>
+        <tr>
+            <td><code>patronymic</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee's patronymic</td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+            <ul>
+                <li>available</li>
+                <li>break</li>
+                <li>do_not_disturb</li>
+                <li>not_at_workplace</li>
+                <li>not_at_work</li>
+                <li>unknown</li>
+            </ul>
+            </td>
+            <td>Employee's status
+            <ul>
+                <li>available - Available</li>
+                <li>break - On a break</li>
+                <li>do_not_disturb - Do not disturb</li>
+                <li>not_at_workplace - Not at workplace</li>
+                <li>not_at_work - Not at work</li>
+                <li>unknown - Unknown</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>allowed_in_call_types</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td>
+            <ul>
+                <li>internal</li>
+                <li>external</li>
+            </ul>
+            </td>
+            <td>Types of incoming calls allowed to an employee
+            <ul>
+                <li>internal - internal calls to company's employees</li>
+                <li>external - external calls beyond the company</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>allowed_out_call_types</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td>
+            <ul>
+                <li>internal</li>
+                <li>external</li>
+            </ul>
+            </td>
+            <td>Types of outgoing calls allowed to an employee
+            <ul>
+                <li>internal - internal calls to company's employees</li>
+                <li>external - external calls beyond the company</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>email</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee's email</td>
+        </tr>
+        <tr>
+            <td><code>call_recording</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+                <ul>
+                    <li><code>all</code> - for all calls;</li>
+                    <li><code>in</code> - only incoming calls;</li>
+                    <li><code>out</code> - only outgoing calls;</li>
+                    <li><code>off</code> -
+                switched off</li>
+                </ul>
+            </td>
+            <td>
+                Status of call recording <blockquote>Depends on the component "recording"</blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>schedule_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Activity schedule</td>
+        </tr>
+        <tr>
+            <td><code>calls_available</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+            <blockquote>Parameter will be deleted shortly. Instead, use the parameters: allowed_in_call_types, allowed_out_call_types</blockquote>
+            Default value is <code>"true"</code>. Availability for calls 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Coach</td>
+        </tr>
+        <tr>
+            <td><code>coach</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>Coach for an employee <blockquote>Depends on the component <code>"trainer"</code></blockquote></td>
+        </tr>
+        <tr>
+            <td><code>coach_always_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+                Default value is <code>"false"</code>. As you enable this option, all emloyee's calls will also be duplicated for his or hers coach.
+                <blockquote>Value <code>"true"</code> can be set if the parameter <code>"coach_id"</code> is given.</blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>coach_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Coach unique ID</td>
+        </tr>
+        <tr>
+            <td colspan="5">Groups an employee belongs to</td>
+        </tr>
+        <tr>
+            <td><code>groups</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>List of unique IDs of groups an employee belongs to.</td>
+        </tr>
+        <tr>
+            <td colspan="5">Phone numbers</td>
+        </tr>
+        <tr>
+            <td><code>phone_numbers</code></td>
+            <td>array</td>
+            <td>yes</td>
+            <td>10</td>
+            <td>List of employee's phone number
+            <blockquote>
+                List of employee's phone numbers. <blockquote>It is important to know that when you create a new employee, his or hers number may already be attributed to another employee. In this case, when new parameters are set for this new number, they will be also updated for the existing number.
+            </blockquote></td>
+        </tr>
+        <tr>
+            <td><code>phone_number</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Employee's phone number</td>
+        </tr>
+        <tr>
+            <td><code>channels_count</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 1 to 150</td>
+            <td>Number of phone lines</td>
+        </tr>
+        <tr>
+            <td><code>dial_time</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 1 to 100</td>
+            <td>Dialing time</td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td><code>active</code>, <code>inactive</code></td>
+            <td>Phone number status.</td>
+        </tr>
+        <tr>
+            <td colspan="5">Extension number</td>
+        </tr>
+        <tr>
+            <td><code>extension</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee's extension number</td>
+        </tr>
+        <tr>
+            <td><code>extension_phone_number</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td>Maximum lrngth is 5</td>
+            <td>Extension number</td>
+        </tr>
+        <tr>
+            <td><code>extension_voice_mail_enabled</code></td>
+            <td>boolean</td>
+            <td>yes</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+                Default value is <code>"false"</code>.<br>
+                In case all the numbers in an employee's phone numbers list are busy, a caller can leave a voice message.
+            </td>
+        </tr>
+        <tr>
+            <td><code>extension_queue_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>
+                Default value is  <code>"false"</code>.<br>
+                In case all the numbers, attributed to an employee in a list, are busy, a caller can get in line for a redial to phone numbers in a list. Than, he or she will wait for the first number to become available.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Whether an employee is a chat operator or not</td>
+        </tr>
+        <tr>
+            <td><code>operator</code></td>
+            <td>object</td>
+            <td>not</td>
+            <td></td>
+            <td>Workplace operator <blockquote>Depends on the component <code>"consultant"</code></blockquote></td>
+        </tr>
+        <tr>
+            <td><code>operator_display_name</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Operator's name as displayed in chats</td>
+        </tr>
+        <tr>
+            <td><code>operator_login</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Operator's login for the app "Operator's workplace"</td>
+        </tr>
+        <tr>
+            <td><code>operator_password</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td>Maximum length is 8</td>
+            <td>Operator's password for the app "Operator's workplace"</td>
+        </tr>
+        <tr>
+            <td><code>operator_position_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Employee's position</td>
+        </tr>
+        <tr>
+            <td><code>operator_offline_message_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>Default value is <code>"false"</code>. Authorized to process offline messages or not</td>
+        </tr>
+        <tr>
+            <td><code>operator_invite_to_chat_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>Default value is <code>"false"</code>. Authorized to invite to join chats or not</td>
+        </tr>
+        <tr>
+            <td><code>operator_chat_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td>Default value is <code>"true"</code>. Authorized to participate in chats with visitors or not</td>
+        </tr>
+        <tr>
+            <td><code>operator_sites</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>List of websites unique IDs and addresses that have access to an employee.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_3">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;update.employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;first_name&quot;:&quot;string&quot;,
+    &quot;last_name&quot;:&quot;string&quot;,
+    &quot;patronymic&quot;:&quot;string&quot;,
+    &quot;status&quot;: &quot;enum&quot;,
+    &quot;allowed_in_call_types&quot;: &quot;array&quot;,
+    &quot;allowed_out_call_types&quot;: &quot;array&quot;,
+    &quot;email&quot;:&quot;string&quot;,
+    &quot;groups&quot;:[
+      &quot;group_id&quot;
+    ],
+    &quot;call_recording&quot;:&quot;enum&quot;,
+    &quot;calls_available&quot;:&quot;boolean&quot;,
+    &quot;schedule_id&quot;:&quot;number&quot;,
+    &quot;coach&quot;:{
+      &quot;coach_always_enabled&quot;:&quot;boolean&quot;,
+      &quot;coach_id&quot;:&quot;number&quot;
+    },
+    &quot;phone_numbers&quot;:[
+      {
+        &quot;phone_number&quot;:&quot;string&quot;,
+        &quot;channels_count&quot;:&quot;number&quot;,
+        &quot;dial_time&quot;:&quot;number&quot;,
+        &quot;status&quot;:&quot;enum&quot;
+      }
+    ],
+    &quot;extension&quot;:{
+      &quot;extension_phone_number&quot;:&quot;string&quot;,
+      &quot;extension_voice_mail_enabled&quot;:&quot;boolean&quot;,
+      &quot;extension_queue_enabled&quot;:&quot;boolean&quot;
+    },
+    &quot;operator&quot;:{
+      &quot;operator_login&quot;:&quot;string&quot;,
+      &quot;operator_display_name&quot;: &quot;string&quot;,
+      &quot;operator_password&quot;:&quot;string&quot;,
+      &quot;operator_position_id&quot;:&quot;number&quot;,
+      &quot;operator_offline_message_enabled&quot;:&quot;boolean&quot;,
+      &quot;operator_invite_to_chat_enabled&quot;:&quot;boolean&quot;,
+      &quot;operator_chat_enabled&quot;:&quot;boolean&quot;,
+      &quot;operator_sites&quot;:[
+        &quot;site_id&quot;
+      ]
+    }
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_3">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_3">List of returning errors</h3>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb update"</a></p>
+<h2 id="creating-groups-of-employees">Creating groups of employees</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>create.group_employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Creating groups of employees</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_4">Parameters of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Valid value</th>
+            <th>Descriprion</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Group name</td>
+        </tr>
+        <tr>
+            <td colspan="5">List of employees in a group</td>
+        </tr>
+        <tr>
+            <td><code>members</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>List of unique IDs of employees, that belong to a group</td>
+        </tr>
+        <tr>
+            <td colspan="5">Group extension number settings</td>
+        </tr>
+        <tr>
+            <td><code>group_phone_number</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td>Maximum length 5</td>
+            <td>Group extension number <blockquote>Depends on the component <code>"va"</code></blockquote></td>
+        </tr>
+        <tr>
+            <td><code>queue_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td></td>
+            <td>
+                Default value is <code>"false"</code>. In case all the numbers, attributed to a group, are busy, a caller can get in line for a redial to phone numbers in a list. Than, he or she will wait for the first number to become available.
+                <blockquote>Depends on the component <code>"va"</code></blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>channels_count</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>From 1 to 199</td>
+            <td>
+                Default value is <code>1</code>.<br>
+                Number of simultaneous channels when dialing
+                <blockquote>Depends on the component <code>"va"</code></blockquote>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="parameters-of-a-reply_2">Parameters of a reply</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Group inique ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_4">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;create.group_employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;name&quot;:&quot;string&quot;,
+    &quot;members&quot;:[
+      &quot;employee_id&quot;
+    ],
+    &quot;group_phone_number&quot;:&quot;string&quot;,
+    &quot;queue_enabled&quot;:&quot;boolean&quot;,
+    &quot;channels_count&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_4">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+    &quot;id&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_4">List of returning errors</h3>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb create"</a></p>
+<h2 id="deleting-groups-of-employees">Deleting groups of employees</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>delete.group_employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Deleting groups of employees</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_5">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Group ID</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_5">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;delete.group_employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;id&quot;:&quot;number&quot;,
+    &quot;user_id&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_5">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_5">List of returning errors</h3>
+<p>Refer to <a href="..#_deleteErrors">"List of errors for methods with the verb delete"</a></p>
+<h2 id="updating-groups-of-employees">Updating groups of employees</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>update.group_employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">::Deleting employee group::</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You can update partially. If a bulk of data is updated, it replaces an existing one.</p>
+</blockquote>
+<h3 id="parameters-of-a-request_6">Parameters of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Valid value</th>
+            <th>Descriprion</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>Group ID</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Group name</td>
+        </tr>
+        <tr>
+            <td colspan="5">List of employees in a group</td>
+        </tr>
+        <tr>
+            <td><code>members</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>
+                List of unique IDs of employees, that belong to a group
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Group extension number settings</td>
+        </tr>
+        <tr>
+            <td><code>group_phone_number</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td>Maximum length is 5</td>
+            <td>Group extension number <blockquote>Depends on the component <code>"va"</code></blockquote></td>
+        </tr>
+        <tr>
+            <td><code>queue_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td></td>
+            <td>
+                Default value is <code>"false"</code>. In case all the numbers, attributed to a group, are busy, a caller can get in line for a redial to phone numbers in a list. Than, he or she will wait for the first number to become available.
+                <blockquote>Depends on the component <code>"va"</code></blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>channels_count</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>From 1 to 199</td>
+            <td>
+                Default value is <code>1</code>.<br>
+                Number of simultaneous channels when dialing
+                <blockquote>Depends on the component <code>"va"</code></blockquote>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_6">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;update.group_employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;id&quot;:&quot;number&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;name&quot;:&quot;string&quot;,
+    &quot;members&quot;:[
+      &quot;employee_id&quot;
+    ],
+    &quot;group_phone_number&quot;:&quot;string&quot;,
+    &quot;queue_enabled&quot;:&quot;boolean&quot;,
+    &quot;channels_count&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_6">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_6">List of returning errors</h3>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb update"</a></p>
+<h2 id="getting-a-list-of-employees-groups">Getting a list of employees groups</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>get.group_employees</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Getting a list of employees groups</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_7">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+<tr>
+<td align="left"><code>limit</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Number of returning inquiries. Refer to <a href="..#_paging">"Paging"</a></td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Offset that defines inquiries from which number to return, <code>"limit"</code> of inquiries. Default value is "0". Refer to <a href="..#_paging">"Paging"</a></td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">object</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_filters">"Filtering criteria"</a></td>
+</tr>
+<tr>
+<td align="left"><code>fields</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_views">"Viewing returning data"</a></td>
+</tr>
+<tr>
+<td align="left"><code>sort</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_sort">"Data sorting"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-reply_3">Parameters of a reply</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Valid value</th>
+            <th>Filtering</th>
+            <th>Sorting</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Group ID</td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td></td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Group name</td>
+        </tr>
+        <tr>
+            <td colspan="6">List of employees in a group</td>
+        </tr>
+        <tr>
+            <td><code>members</code></td>
+            <td>array</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                List of unique IDs of employees, that belong to a group
+            </td>
+        </tr>
+        <tr>
+            <td><code>employee_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Employee unique ID</td>
+        </tr>
+        <tr>
+            <td><code>employee_full_name</code></td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Employee full name</td>
+        </tr>
+        <tr>
+            <td colspan="6">List of phone numbers of employees that belong to a group and their availability</td>
+        </tr>
+        <tr>
+            <td><code>phone_numbers</code></td>
+            <td>array</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>
+                List of landline, mobile and sip numbers of employees, that belong to a group, with an indication of
+                their availability and order of dialing priority. Order of dialing priority is defined by a number's position in a list. Dialing a group's phone number list can be made using the group's extension number (refer to the parameter <code>"group_phone_number"</code>). To change the priority and availability of a number refer to the method
+                <code>"update.group_employees_numbers"</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>employee_phone_number</code></td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Employee phone number</td>
+        </tr>
+        <tr>
+            <td><code>employee_phone_number_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Employee phone number ID/td>
+        </tr>
+        <tr>
+            <td><code>employee_full_name</code></td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Employee full name</td>
+        </tr>
+        <tr>
+            <td><code>employee_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Employee ID</td>
+        </tr>
+        <tr>
+            <td><code>available</code></td>
+            <td>boolean</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Availability of a number in a group</td>
+        </tr>
+        <tr>
+            <td colspan="6">Group extension number settings</td>
+        </tr>
+        <tr>
+            <td><code>group_phone_number</code></td>
+            <td>string</td>
+            <td>Maximum length is 5</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Group extension number</td>
+        </tr>
+        <tr>
+            <td><code>queue_enabled</code></td>
+            <td>boolean</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>
+                Default value is <code>"false"</code>. In case all the numbers, attributed to a group, are busy, a caller can get in line for a redial to phone numbers in a list. Than, he or she will wait for the first number to become available.
+                <blockquote>Depends on the component <code>"va"</code></blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>channels_count</code></td>
+            <td>number</td>
+            <td>From 1 to 199</td>
+            <td>yes</td>
+            <td></td>
+            <td>Number of simultaneous channels when dialing</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_7">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.group_employees&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;offset&quot;:&quot;number&quot;,
+    &quot;limit&quot;:&quot;number&quot;,
+    &quot;filter&quot;:{
+
+    },
+    &quot;sort&quot;:[
+      {
+        &quot;field&quot;:&quot;string&quot;,
+        &quot;order&quot;:&quot;string&quot;
+      }
+    ],
+    &quot;fields&quot;:[
+      &quot;string&quot;
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_7">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+    &quot;metadata&quot;:{
+
+    },
+    &quot;data&quot;:[
+      {
+        &quot;id&quot;:&quot;number&quot;,
+        &quot;name&quot;:&quot;string&quot;,
+        &quot;members&quot;:[
+          {
+            &quot;employee_id&quot;:&quot;number&quot;,
+            &quot;employee_full_name&quot;:&quot;string&quot;
+          }
+        ],
+        &quot;phone_number&quot;:[
+          {
+            &quot;employee_phone_number&quot;:&quot;string&quot;,
+            &quot;employee_phone_number_id&quot;:&quot;number&quot;,
+            &quot;employee_full_name&quot;:&quot;string&quot;,
+            &quot;employee_id&quot;:&quot;number&quot;,
+            &quot;available&quot;:&quot;boolean&quot;
+          }
+        ],
+        &quot;group_phone_number&quot;:&quot;string&quot;,
+        &quot;queue_enabled&quot;:&quot;boolean&quot;,
+        &quot;channels_count&quot;:&quot;number&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_7">List of returning errors</h3>
+<p>Refer to <a href="..#_getErrors">"List of errors for methods with the verb get"</a></p>
+<h2 id="updating-and-priority-and-availability-of-an-employees-phone-number-in-an-employees-group">Updating and priority and availability of an employee's phone number in an employees group</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>update.group_employees_numbers</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Updating and priority and availability of an employee's phone number in an employees group</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>If a number is not in a numbers list, any information attributed to it van not be updated.</p>
+</blockquote>
+<h3 id="parameters-of-a-request_8">Parameters of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td>Group ID</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td>Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+        </tr>
+        <tr>
+            <td colspan="5">List of phone numbers in a group, and their availability</td>
+        </tr>
+        <tr>
+            <td><code>phone_numbers</code></td>
+            <td>array</td>
+            <td>yes</td>
+            <td>List of landline, mobile and sip numbers of employees, that belong to a group, with an indication of
+                their availability and order of dialing priority. Order of dialing priority is defined by a number's position in a list. Dialing a group's phone number list can be made using the group's extension number (refer to the parameter <code>"group_phone_number"</code>).
+                <blockquote>You need to transmit all the numbers</blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>employee_phone_number_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td>Unique ID of a phone number of an employee from a group</td>
+        </tr>
+        <tr>
+            <td><code>available</code></td>
+            <td>boolean</td>
+            <td>yes</td>
+            <td>Availability of a number in a group</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_8">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;update.group_employees_numbers&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;id&quot;:&quot;number&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;phone_numbers&quot;:[
+      {
+        &quot;employee_phone_number_id&quot;:&quot;number&quot;,
+        &quot;available&quot;:&quot;boolean&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_8">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_8">List of returning errors</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Text of error</th>
+<th align="left">Mnemonics</th>
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Invalid parameter value</em></td>
+<td align="left"><code>invalid_parameter_value</code></td>
+<td align="left">-32602</td>
+<td align="left">Not all the numbers are transferred in the data bulk phone_numbers</td>
+</tr>
+</tbody>
+</table>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb update"</a></p>
+<h2 id="getting-the-list-of-employees-positions">Getting the list of employees positions</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>get.employee_positions</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Getting the list of employees positions</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_9">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+<tr>
+<td align="left"><code>limit</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Number of returning inquiries. Refer to <a href="..#_paging">"Paging"</a></td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Offset that defines inquiries from which number to return, <code>"limit"</code> of inquiries. Default value is "0". Refer to <a href="..#_paging">"Paging"</a></td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">object</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_filters">"Filtering criteria"</a></td>
+</tr>
+<tr>
+<td align="left"><code>fields</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_views">"Viewing returning data"</a></td>
+</tr>
+<tr>
+<td align="left"><code>sort</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_sort">"Data sorting"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-reply_4">Parameters of a reply</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Filtering</th>
+<th align="left">Sorting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="left">yes</td>
+<td align="left"></td>
+<td align="left">Unique ID of employee's position</td>
+</tr>
+<tr>
+<td align="left"><code>name</code></td>
+<td align="left">string</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="left">Employee's position title</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_9">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.employee_positions&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;offset&quot;:&quot;number&quot;,
+    &quot;limit&quot;:&quot;number&quot;,
+    &quot;filter&quot;:{
+
+    },
+    &quot;sort&quot;:[
+      {
+        &quot;field&quot;:&quot;string&quot;,
+        &quot;order&quot;:&quot;string&quot;
+      }
+    ],
+    &quot;fields&quot;:[
+      &quot;string&quot;
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_9">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+    &quot;metadata&quot;:{
+
+    },
+    &quot;data&quot;:[
+      {
+        &quot;id&quot;:&quot;number&quot;,
+        &quot;name&quot;:&quot;string&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_9">List of returning errors</h3>
+<p>Refer to <a href="..#_getErrors">"List of errors for methods with the verb get"</a></p>
+<h2 id="creating-employees-positions">Creating employees positions</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>create.employee_positions</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Creating employees positions</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_10">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+<tr>
+<td align="left"><code>name</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Position title</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-reply_5">Parameters of a reply</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Position ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_10">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;create.employee_positions&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;name&quot;:&quot;string&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_10">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+    &quot;id&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_10">List of returning errors</h3>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb create"</a></p>
+<h2 id="updating-employees-positions">Updating employees positions</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>update.employee_positions</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Updating employees positions</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_11">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+<tr>
+<td align="left"><code>name</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Position title</td>
+</tr>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Position ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_11">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;update.employee_positions&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;id&quot;:&quot;number&quot;,
+    &quot;name&quot;:&quot;string&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_11">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_11">List of returning errors</h3>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb update"</a></p>
+<h2 id="deleting-employees-positions">Deleting employees positions</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Methods</th>
+<th align="left"><code>delete.employee_positions</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Deleting employees positions</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_12">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Unique ID of an employee's position</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is mandatory for an agent</blockquote> To get a list of customer users use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_12">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;delete.employee_positions&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;id&quot;:&quot;number&quot;,
+    &quot;user_id&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_12">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;result&quot;:{
+
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_12">List of returning errors</h3>
+<p>Refer to <a href="..#_deleteErrors">"List of errors for methods with the verb delete"</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Tags/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Tags
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Contacts/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Contacts
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+      
+        <script src="../js/init.js"></script>
+      
+    
+  </body>
+</html>

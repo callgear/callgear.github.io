@@ -1,0 +1,3666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>Ad Campaigns - DATA API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#list-of-parameters-and-their-operators" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="DATA API" class="md-header-nav__button md-logo" aria-label="DATA API">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            DATA API
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Ad Campaigns
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DATA API" class="md-nav__button md-logo" aria-label="DATA API">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DATA API
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Changelog/" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      General Information
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Account/" class="md-nav__link">
+      Account
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../VirtualNumbers/" class="md-nav__link">
+      Virtual Numbers
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../SipLines/" class="md-nav__link">
+      SIP-lines
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Scenarios/" class="md-nav__link">
+      Scenarios
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../UserMedia/" class="md-nav__link">
+      Media
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Ad Campaigns
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Ad Campaigns
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-parameters-and-their-operators" class="md-nav__link">
+    List of parameters and their operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-advertising-campaigns" class="md-nav__link">
+    Getting a list of advertising campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of advertising campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-advertising-campaigns" class="md-nav__link">
+    Deleting advertising campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting advertising campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_1" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_1" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_1" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_1" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-virtual-numbers-available-for-advertising-campaigns-adjustments" class="md-nav__link">
+    Getting a list of virtual numbers available for advertising campaigns adjustments
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of virtual numbers available for advertising campaigns adjustments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-a-request" class="md-nav__link">
+    Examples of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-reply" class="md-nav__link">
+    Parameters of reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_2" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_2" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_2" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-redirection-phone-numbers-available-for-campaigns-adjustments" class="md-nav__link">
+    Getting a list of redirection phone numbers available for campaign's adjustments
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of redirection phone numbers available for campaign's adjustments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-request" class="md-nav__link">
+    Parameters of request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_1" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_3" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_3" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_3" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-campaigns" class="md-nav__link">
+    Creating campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-of-a-request" class="md-nav__link">
+    Parameter of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_2" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_4" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_4" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_4" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-advertising-campaigns" class="md-nav__link">
+    Updating advertising campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating advertising campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_2" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_5" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_5" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_5" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-advertising-campaign-parameter-weights" class="md-nav__link">
+    Getting advertising campaign parameter weights
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting advertising campaign parameter weights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_3" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_3" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_6" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_6" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_6" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-advertising-campaign-parameter-weights" class="md-nav__link">
+    Updating advertising campaign parameter weights
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating advertising campaign parameter weights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_4" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_7" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_7" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_7" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Sites/" class="md-nav__link">
+      Sites
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Reports/" class="md-nav__link">
+      Reports
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tags/" class="md-nav__link">
+      Tags
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Employees/" class="md-nav__link">
+      Employees
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Contacts/" class="md-nav__link">
+      Contacts
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Schedules/" class="md-nav__link">
+      Schedules
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../report/campaign_daily_stat/" class="md-nav__link">
+      Ad Campaigns Daily Reports
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Partners/" class="md-nav__link">
+      Agents’ Customers
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Communications/" class="md-nav__link">
+      Communications
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-parameters-and-their-operators" class="md-nav__link">
+    List of parameters and their operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-advertising-campaigns" class="md-nav__link">
+    Getting a list of advertising campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of advertising campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-advertising-campaigns" class="md-nav__link">
+    Deleting advertising campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Deleting advertising campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_1" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_1" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_1" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_1" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-virtual-numbers-available-for-advertising-campaigns-adjustments" class="md-nav__link">
+    Getting a list of virtual numbers available for advertising campaigns adjustments
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of virtual numbers available for advertising campaigns adjustments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-a-request" class="md-nav__link">
+    Examples of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-reply" class="md-nav__link">
+    Parameters of reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_2" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_2" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_2" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-redirection-phone-numbers-available-for-campaigns-adjustments" class="md-nav__link">
+    Getting a list of redirection phone numbers available for campaign's adjustments
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of redirection phone numbers available for campaign's adjustments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-request" class="md-nav__link">
+    Parameters of request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_1" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_3" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_3" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_3" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-campaigns" class="md-nav__link">
+    Creating campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-of-a-request" class="md-nav__link">
+    Parameter of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_2" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_4" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_4" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_4" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-advertising-campaigns" class="md-nav__link">
+    Updating advertising campaigns
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating advertising campaigns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_2" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_5" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_5" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_5" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-advertising-campaign-parameter-weights" class="md-nav__link">
+    Getting advertising campaign parameter weights
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting advertising campaign parameter weights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_3" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-reply_3" class="md-nav__link">
+    Parameters of a reply
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_6" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_6" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_6" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-advertising-campaign-parameter-weights" class="md-nav__link">
+    Updating advertising campaign parameter weights
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating advertising campaign parameter weights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-a-request_4" class="md-nav__link">
+    Parameters of a request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-request-structure_7" class="md-nav__link">
+    JSON request structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-reply-structure_7" class="md-nav__link">
+    JSON reply structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-returning-errors_7" class="md-nav__link">
+    List of returning errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Ad Campaigns</h1>
+                
+                <p><a name="_operatorsValuesParameters"></a></p>
+<h2 id="list-of-parameters-and-their-operators">List of parameters and their operators</h2>
+<table>
+    <tbody>
+        <tr>
+            <th>campaign_parameter</th>
+            <th>Title</th>
+            <th>operator</th>
+            <th>value</th>
+        </tr>
+        <tr>
+            <td><code>entrance_page</code></td>
+            <td>Entrance page</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td colspan="4">Source of traffic</td>
+        </tr>
+        <tr>
+            <td><code>referrer_domain</code></td>
+            <td>Referrer domain</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>search_engine</code></td>
+            <td>Search engine</td>
+            <td>=</td>
+            <td>
+                <ul>
+                <li>askcom</li>
+                <li>bing.com</li>
+                <li>google.com</li>
+                <li>mail.ru</li>
+                <li>nigma</li>
+                <li>rambler.ru</li>
+                <li>yahoo.com</li>
+                <li>yandex</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>search_query</code></td>
+            <td>Search query</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>engine</code></td>
+            <td>Advertising engine</td>
+            <td>=</td>
+            <td>
+                <ul>
+                <li>5 - Aport</li>
+                <li>2 - Google AdWords</li>
+                <li>3 - Begun</li>
+                <li>1 - Yandex.Direct</li>
+                <li>4 - Yandex.Market</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>referrer</code></td>
+            <td>Referrer</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>channel</code></td>
+            <td>Channel</td>
+            <td>=</td>
+            <td>
+                <ul>
+                <li>display</li>
+                <li>paid</li>
+                <li>affiliate</li>
+                <li>messenger</li>
+                <li>social</li>
+                <li>email</li
+                <li>organic</li>
+                <li>internal</li>
+                <li>recommendation</li>
+                <li>cashed</li>
+                <li>referral</li>
+                <li>direct</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">Geography of visitors</td>
+        </tr>
+        <tr>
+            <td><code>country</code></td>
+            <td>Country</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>city</code></td>
+            <td>City</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>region</code></td>
+            <td>Region</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td colspan="4">UTMs</td>
+        </tr>
+        <tr>
+            <td><code>utm_source</code></td>
+            <td>UTM source </td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>utm_medium</code></td>
+            <td>UTM medium</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>utm_campaign</code></td>
+            <td>UTM campaign</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>utm_term</code></td>
+            <td>UTM term</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>utm_content</code></td>
+            <td>UTM content</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td colspan="4">Openstats</td>
+        </tr>
+        <tr>
+            <td><code>openstat_service</code></td>
+            <td>ID of a service</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>openstat_campaign</code></td>
+            <td>ID of an advertising campaign</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>openstat_source</code></td>
+            <td>ID of a channel, a section, a page, a place on a page, where a respective ad was shown</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>openstat_ad</code></td>
+            <td>ID of an ad</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td colspan="4">Other url tags</td>
+        </tr>
+        <tr>
+            <td><code>ef_id</code></td>
+            <td>Is used to mark links in AdLense contextual advertising management system</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>yclid</code></td>
+            <td>Yandex Click Identifier</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>gclid</code></td>
+            <td>Google Click Identifier</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>ymclid</code></td>
+            <td>Yandex Metric Click Identifier</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <td colspan="4">Extended UTMs</td>
+        </tr>
+        <tr>
+            <td><code>static_utm_source</code></td>
+            <td>Static UTM Source </td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>static_utm_medium</code></td>
+            <td>Static UTM Medium</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>static_utm_campaign</code></td>
+            <td>Static UTM Campaign</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>static_utm_content</code></td>
+            <td>Static UTM Term</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>static_utm_term</code></td>
+            <td>Static UTM Content</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>static_utm_referrer</code></td>
+            <td>Static UTM Referrer</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+        <tr>
+            <td><code>static_utm_expid</code></td>
+            <td>Static UTM Expid</td>
+            <td>sub, =, ~</td>
+            <td>Filled in by hand</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="getting-a-list-of-advertising-campaigns">Getting a list of advertising campaigns</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>get.campaigns</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Getting a list of all the advertising campaigns - integrated, basic and system</td>
+</tr>
+<tr>
+<td align="left">Who gets</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent that makes a request. <blockquote>Is mandatory for agent</blockquote> To get a list of a customer's users you need to use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+<tr>
+<td align="left"><code>limit</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Number of returning entries . Refer to <a href="..#_paging">"Page-oriented output"</a></td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Offset, that defines: entries from which number to return, <code>"limit"</code> of entries. Default value is "0". Refer to <a href="..#_paging">"Page-oriented output"</a></td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">object</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_filters">"Filtering criteria"</a></td>
+</tr>
+<tr>
+<td align="left"><code>fields</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_views">"Providing returning data"</a></td>
+</tr>
+<tr>
+<td align="left"><code>sort</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_sort">"Data sorting"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-reply">Parameters of a reply</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Valid value</th>
+            <th>Filtering</th>
+            <th>Sorting</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Unique ID of a campaign</td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td></td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Name of a campaign</td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>string</td>
+            <td>255 symbols max</td>
+            <td></td>
+            <td></td>
+            <td>Description of a campaign</td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                <li>active</li>
+                <li>inactive</li>
+                </ul>
+            </td>
+            <td>yes</td>
+            <td></td>
+            <td>Status of a campaign</td>
+        </tr>
+        <tr>
+            <td><code>creation_time</code></td>
+            <td>iso8601</td>
+            <td>YYYY-MM-DD hh:mm:ss</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Date and time of a campaign's implementation</td>
+        </tr>
+        <tr>
+            <td><code>campaign_conditions</code></td>
+            <td>object</td>
+            <td></td>
+            <td>no</td>
+            <td></td>
+            <td>Conditions of a campaign. <blockquote>Is absent if the field <code>type = integrated | system</code></blockquote></td>
+        </tr>
+        <tr>
+            <td><code>engine</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                <li>yandex.direct</li>
+                <li>google.adwords</li>
+                </ul>
+            </td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Engine for integrated campaigns</td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                <li>basic</li>
+                <li>system</li>
+                <li>integrated</li>
+                </ul>
+            </td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Types of campaigns.
+                <ul>
+                <li>system - system advertising campaign "Users without advertising campaigns". Can't be deleted</li>
+                <li>integrated - integrated advertising campaign. Can't be deleted</li>
+                <li>basic - basic advertising campaign, created in CallGear</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>costs</code></td>
+            <td>number</td>
+            <td></td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Advertising campaign costs</td>
+        </tr>
+        <tr>
+            <td><code>cost_ratio</code></td>
+            <td>number</td>
+            <td>minimum value 1</td>
+            <td></td>
+            <td></td>
+            <td>Default value is 1. Coefficient, that influences the parameter `costs`</td>
+        </tr>
+        <tr>
+            <td><code>cost_ratio_operator</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                    <li>wo_changes</li>
+                    <li>multiply</li>
+                    <li>divide</li>
+                </ul>
+            </td>
+            <td></td>
+            <td></td>
+            <td>Default value is `wo_changes`. Operator, that is used to calculate `costs` with consideration to `cost_ratio`</td>
+        </tr>
+        <tr>
+            <td colspan="6">Website</td>
+        </tr>
+        <tr>
+            <td><code>site_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Website unique ID</td>
+        </tr>
+        <tr>
+            <td><code>site_domain_name</code></td>
+            <td>string</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Website's internet address. Without protocol - "http://" or "https://"</td>
+        </tr>
+        <tr>
+            <td colspan="6">Settings to associate a number to a website's block</td>
+        </tr>
+        <tr>
+            <td><code>site_blocks</code></td>
+            <td>array</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Settings to associate a number to a website's block</td>
+        </tr>
+        <tr>
+            <td><code>site_block_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Unique ID of a block of numbers</td>
+        </tr>
+        <tr>
+            <td><code>site_block_name</code></td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Name of a block of numbers</td>
+        </tr>
+        <tr>
+            <td><code>phone_number_type</code></td>
+            <td>enum</td>
+            <td>
+            <ul>
+                <li>user</li>
+                <li>va</li>
+                <li>call_tracking</li>
+                </ul>
+            </td>
+            <td></td>
+            <td></td>
+            <td>Virtual number type (refer to the method <a href="#_campaignAvailablePhoneNumbers">get.campaign_available_phone_numbers</a>) for the parameter <code>phone_number_id</code>:
+                <ul>
+                <li>user - user</li>
+                <li>va - Hosted PBX number</li>
+                <li>call_tracking - Analytics number</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>phone_number_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+            Unique ID of a virtual number depending on the parameter <code>phone_number_type</code>.
+            To get a list of available virtual numbers, you need to use the method <a href="#_campaignAvailablePhoneNumbers">get.campaign_available_phone_numbers</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>phone_number</code></td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Number that complies with the parameter <code>phone_number_id</code></td>
+        </tr>
+        <tr>
+            <td><code>redirection_phone_number_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+            Redirection number, that is used in case a number's type from the parameter <code>phone_number_id</code> has value <code>call_tracking</code>.
+            To get a list of available redirection numbers you need to use the method <a href="#_campaignAvailableRedirectionPhoneNumbers">get.campaign_available_redirection_phone_numbers</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>redirection_phone_number</code></td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Number that complies with the parameter <code>redirection_phone_number_id</code></td>
+        </tr>
+        <tr>
+            <td><code>dynamic_call_tracking_enabled</code></td>
+            <td>boolean</td>
+            <td>true, false</td>
+            <td></td>
+            <td></td>
+            <td>
+            Dynamic call tracking.
+            <blockquote>Can have value "true" if the parameter <code>phone_number_type = va | call_tracking</code></blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">Dynamic call tracking</td>
+        </tr>
+        <tr>
+            <td><code>dynamic_call_tracking</code></td>
+            <td>object</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>
+            Dynamic call tracking settings. <br>
+            By default, calls from numbers, that are included in the dynamic call tracking pool, will be treated as according to the rules of processing calls to an advertising campaign block number.
+            </td>
+        </tr>
+        <tr>
+            <td><code>reservation_time</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                <li>5m</li>
+                <li>10m</li>
+                <li>15m</li>
+                <li>20m</li>
+                <li>30m</li>
+                <li>1h</li>
+                <li>2h</li>
+                <li>4h</li>
+                <li>8h</li>
+                <li>1d</li>
+                <li>1w</li>
+            </ul>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+            Default value is "15m". <br>Time period, for which a number will be appointed to a website visitor.
+            As the time is up, the number gets appointed to another visitor (or, if there are some vacant call tracking numbers left, it stays the same.
+            </td>
+        </tr>
+        <tr>
+            <td><code>count_virtual_numbers</code></td>
+            <td>number</td>
+            <td></td>
+            <td>minimum value 1</td>
+            <td></td>
+            <td>
+            Quantity of numbers required for call tracking to work in a block. The numbers will be purchased.
+            </td>
+        </tr>
+        <tr>
+            <td><code>count_visits</code></td>
+            <td>number</td>
+            <td></td>
+            <td>minimum value 1</td>
+            <td></td>
+            <td>
+            Number of visits from a campaign per day
+            </td>
+        </tr>
+        <tr>
+            <td><code>coverage_visitors</code></td>
+            <td>number</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+            Percentage of website visitors, that will see a dynamic call tracking number
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">Group conditions settings</td>
+        </tr>
+        <tr>
+            <td><code>group_conditions</code></td>
+            <td>array</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                Group conditions of an advertising campaign
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">Conditions settings</td>
+        </tr>
+        <tr>
+            <td><code>conditions</code></td>
+            <td>array</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                Advertising campaign conditions in a group of conditions
+            </td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                <li>include</li>
+                <li>exclude</li>
+                </ul>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                Advertising campaign conditions in a group of conditions
+            </td>
+        </tr>
+        <tr>
+            <td><code>campaign_parameter</code></td>
+            <td>enum</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                For List of acceptable values and operators refer to the tab <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>value</code></td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                Value for <code>campaign_parameter</code>. <br>
+                Some <code>campaign_parameter</code> can have their own list of acceptable values. Refer to the tab <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>operator</code></td>
+            <td>enum</td>
+            <td> =, sub, ~</td>
+            <td></td>
+            <td></td>
+            <td>
+                Operator if
+                    <ul>
+                    <li>"=" - closely matches</li>
+                    <li>"sub" - includes</li>
+                    <li>"~" - regular expression</li>
+                    </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.campaigns&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;offset&quot;:&quot;number&quot;,
+    &quot;limit&quot;:&quot;number&quot;,
+    &quot;filter&quot;:{
+
+    },
+    &quot;sort&quot;:[
+      {
+        &quot;field&quot;:&quot;string&quot;,
+        &quot;order&quot;:&quot;string&quot;
+      }
+    ],
+    &quot;fields&quot;:[
+      &quot;string&quot;
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;metadata&quot;: {
+
+    },
+    &quot;data&quot;: [
+      {
+        &quot;id&quot;: &quot;number&quot;,
+        &quot;status&quot;: &quot;enum&quot;,
+        &quot;creation_time&quot;: &quot;iso8601&quot;,
+        &quot;description&quot;: &quot;string&quot;,
+        &quot;site_id&quot;: &quot;number&quot;,
+        &quot;site_domain_name&quot;: &quot;string&quot;,
+        &quot;costs&quot;: &quot;number&quot;,
+        &quot;cost_ratio&quot;: &quot;number&quot;,
+        &quot;cost_ratio_operator&quot;: &quot;enum&quot;,
+        &quot;engine&quot;: &quot;enum&quot;,
+        &quot;type&quot;: &quot;enum&quot;,
+        &quot;name&quot;: &quot;string&quot;,
+        &quot;site_blocks&quot;: [
+          {
+            &quot;site_block_id&quot;: &quot;number&quot;,
+            &quot;site_block_name&quot;: &quot;string&quot;,
+            &quot;phone_number_type&quot;: &quot;enum&quot;,
+            &quot;phone_number_id&quot;: &quot;number&quot;,
+            &quot;phone_number&quot;: &quot;string&quot;,
+            &quot;redirection_phone_number_id&quot;: &quot;number&quot;,
+            &quot;redirection_phone_number&quot;: &quot;string&quot;,
+            &quot;dynamic_call_tracking_enabled&quot;: &quot;boolean&quot;
+          }
+        ],
+        &quot;dynamic_call_tracking&quot;: {
+          &quot;reservation_time&quot;: &quot;enum&quot;,
+          &quot;count_virtual_numbers&quot;: &quot;number&quot;,
+          &quot;count_visits&quot;: &quot;number&quot;
+        },
+        &quot;campaign_conditions&quot;: {
+          &quot;group_conditions&quot;: [
+            {
+              &quot;conditions&quot;: [
+                {
+                  &quot;type&quot;: &quot;enum&quot;,
+                  &quot;campaign_parameter&quot;: &quot;enum&quot;,
+                  &quot;operator&quot;: &quot;enum&quot;,
+                  &quot;value&quot;: &quot;string&quot;
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors">List of returning errors</h3>
+<p>Refer to <a href="..#_getErrors">"List of errors for methods with the verb get"</a></p>
+<h2 id="deleting-advertising-campaigns">Deleting advertising campaigns</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>delete.campaigns</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Deleting advertising campaigns</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent , Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_1">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Unique ID of an advertising campaign</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent that makes a request. <blockquote>Is mandatory for agent</blockquote> To get a list of a customer's users you need to use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+</tr>
+</tbody>
+</table>
+<blockquote>It is forbidden to delete system advertising campaigns <code>id = -1</code> neither the integrated ones <code>type = integrated</code>. An error with mnemonics "forbidden" will return.</blockquote>
+
+<h3 id="json-request-structure_1">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;delete.campaigns&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;id&quot;:&quot;number&quot;,
+    &quot;user_id&quot;:&quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_1">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;data&quot;: {
+
+    },
+    &quot;metadata&quot;: {
+
+    }
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_1">List of returning errors</h3>
+<p>Refer to <a href="..#_deleteErrors">"List of errors for methods with the verb delete"</a></p>
+<p><a name="_campaignAvailablePhoneNumbers"></a></p>
+<h2 id="getting-a-list-of-virtual-numbers-available-for-advertising-campaigns-adjustments">Getting a list of virtual numbers available for advertising campaigns adjustments</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>get.campaign_available_phone_numbers</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Getting a list of all virtual numbers available to adjust the parameter <code>phone_number_id</code> when creating/updating a campaign</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples-of-a-request">Examples of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique ID of an advertising campaign</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent that makes a request. <blockquote>Is mandatory for agent</blockquote> To get a list of a customer's users you need to use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a>Number of returning entries . Refer to <a href="..#_paging">"Page-oriented output"</a></td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Offset, that defines: entries from which number to return, <code>"limit"</code> of entries. Default value is "0". Refer to <a href="..#_paging">"Page-oriented output"</a></td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">object</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_filters">"Filtering criteria"</a></td>
+</tr>
+<tr>
+<td align="left"><code>fields</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_views">"Providing returning data"</a></td>
+</tr>
+<tr>
+<td align="left"><code>sort</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_sort">"Data sorting"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-reply">Parameters of reply</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Valid value</th>
+            <th>Filtering</th>
+            <th>Sorting</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Unique ID of a virtual number. This ID should be used in the parameter <code>phone_number_id</code>, method <code>create.campaign</code> or <code>update.campaign</code></td>
+        </tr>
+        <tr>
+            <td><code>phone_number</code></td>
+            <td>string</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Virtual number</td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                <li>va</li>
+                <li>call_tracking</li>
+                <li>user</li>
+                <ul>
+            </td>
+            <td>yes</td>
+            <td></td>
+            <td>Type of a virtual number
+                <ul>
+                <li>va - hosted PBX number</li>
+                <li>call_tracking - Analytics number</li>
+                <li>user - user number</li>
+                <ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_2">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.campaign_available_phone_numbers&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;offset&quot;:&quot;number&quot;,
+    &quot;limit&quot;:&quot;number&quot;,
+    &quot;filter&quot;:{
+
+    },
+    &quot;sort&quot;:[
+      {
+        &quot;field&quot;:&quot;string&quot;,
+        &quot;order&quot;:&quot;string&quot;
+      }
+    ],
+    &quot;fields&quot;:[
+      &quot;string&quot;
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_2">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;metadata&quot;: {
+
+    },
+    &quot;data&quot;: [
+      {
+        &quot;id&quot;: &quot;number&quot;,
+        &quot;phone_number&quot;: &quot;string&quot;,
+        &quot;type&quot;: &quot;enum&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_2">List of returning errors</h3>
+<p>Refer to <a href="..#_getErrors">"List of errors for methods with the verb get"</a></p>
+<p><a name="_campaignAvailableRedirectionPhoneNumbers"></a></p>
+<h2 id="getting-a-list-of-redirection-phone-numbers-available-for-campaigns-adjustments">Getting a list of redirection phone numbers available for campaign's adjustments</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>get.campaign_available_redirection_phone_numbers</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Getting a list of redirection phone numbers available for setting the parameter <code>redirection_phone_number_id</code> when creating/updating campaigns (only hosted PBX numbers).</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-request">Parameters of request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique ID of an advertising campaign</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent that makes a request. <blockquote>Is mandatory for agent</blockquote> To get a list of a customer's users you need to use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a>Number of returning entries . Refer to <a href="..#_paging">"Page-oriented output"</a></td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Offset, that defines: entries from which number to return, <code>"limit"</code> of entries. Default value is "0". Refer to <a href="..#_paging">"Page-oriented output"</a></td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">object</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_filters">"Filtering criteria"</a></td>
+</tr>
+<tr>
+<td align="left"><code>fields</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_views">"Providing returning data"</a></td>
+</tr>
+<tr>
+<td align="left"><code>sort</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_sort">"Data sorting"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-reply_1">Parameters of a reply</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Valid value</th>
+            <th>Filtering</th>
+            <th>Sorting</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Unique ID of a redirection phone number. This ID should be used in the parameter <code>redirection_phone_number_id</code></td>
+        </tr>
+        <tr>
+            <td><code>phone_number</code></td>
+            <td>string</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Redirection phone number</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_3">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.campaign_available_redirection_phone_numbers&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;offset&quot;:&quot;number&quot;,
+    &quot;limit&quot;:&quot;number&quot;,
+    &quot;filter&quot;:{
+
+    },
+    &quot;sort&quot;:[
+      {
+        &quot;field&quot;:&quot;string&quot;,
+        &quot;order&quot;:&quot;string&quot;
+      }
+    ],
+    &quot;fields&quot;:[
+      &quot;string&quot;
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_3">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;metadata&quot;: {
+
+    },
+    &quot;data&quot;: [
+      {
+        &quot;id&quot;: &quot;number&quot;,
+        &quot;phone_number&quot;: &quot;string&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_3">List of returning errors</h3>
+<p>Refer to <a href="..#_getErrors">"List of errors for methods with the verb get"</a></p>
+<h2 id="creating-campaigns">Creating campaigns</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>create.campaigns</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Creating advertising campaigns. <blockquote>Allows creating 'basic' campaigns only.</blockquote></td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<blockquote>You can manage the number of campaigns available to you depending on your service plan</blockquote>
+
+<h3 id="parameter-of-a-request">Parameter of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Valid value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Unique user ID of a customer or an agent who makes request. <blockquote>Is required for an agent.</blockquote> To a get a list of customer users you need to use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Campaign name</td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td>Maximum 255 symbols</td>
+            <td>Descriprion of advertising campaign</td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+                <ul>
+                <li>active</li>
+                <li>inactive</li>
+                </ul>
+            </td>
+            <td>
+            Status of advertising campaign
+            </td>
+        </tr>
+        <tr>
+            <td><code>site_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>Unique ID of a website</td>
+        </tr>
+        <tr>
+            <td><code>campaign_conditions</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>Conditions of advertising campaign</td>
+        </tr>
+        <tr>
+            <td colspan="5">Settings to connect a number to a website's block</td>
+        </tr>
+        <tr>
+            <td><code>site_blocks</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Settings to connect a number to a website's block
+            <blockquote>
+            If blocks of numbers on a website are not indicated, they are can't be set, i.e. are not considered set
+            </blockquote>
+
+            <blockquote>
+            If <code>site_blocks</code> is given alongside with <code>status = inactive</code>, the error `invalid_parameters_combination` will be returned
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>site_block_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+            Unique block of numbers ID
+            </td>
+        </tr>
+        <tr>
+            <td><code>phone_number_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>Unique ID of a virtual number. To get a list of available virtual numbers, you need to use the method <a href="#_campaignAvailablePhoneNumbers">get.campaign_available_phone_numbers</a>
+            <blockquote>
+            If an <code>id</code> is not returned via the <a href="#_campaignAvailablePhoneNumbers">get.campaign_available_phone_numbers</a> method, an error with mnemonics "entity_not_found" will be returned.
+            </blockquote>
+            <blockquote>
+            Number with <code>type = call_tracking</code> can only be used in a single advertising campaign. If a number is already in use in a campaign, the error `already_in_use` will return.
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>redirection_phone_number_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Unique ID of a derirection number. A derirection number can only be used in case the parameter <code>phone_number_id</code> has type `call_tracking`. You can get a list of available numbers by using the method <a href="#_campaignAvailableRedirectionPhoneNumbers">get.campaign_available_redirection_phone_numbers</a>.
+            <br>
+            <blockquote>
+            Is required if the parameter <code>phone_number_id</code> has virtual number with the type "call_tracking".
+            If it's not the case, an error with mnemonics "required_parameter_missed" will return.
+            </blockquote>
+            <blockquote>
+            If the parameter is given, and <code>phone_number_id</code> has a virtual number with the type "va", the error `invalid_parameters_combination` will return.
+            </blockquote>
+            <blockquote>
+            A parameter can have only redirection numbers returned via the method <a href="#_campaignAvailableRedirectionPhoneNumbers">get.campaign_available_redirection_phone_numbers</a>.
+            If it's not the case, an error with mnemonics "invalid_parameter_value" will return
+            </blockquote>
+            <blockquote>
+            Is availiable if the component "va" is activated. If the parameter is filled and you don't have the component "va", an error with mnemonics "parameter_component_disabled" returns
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>dynamic_call_tracking_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td>true, false</td>
+            <td>
+            Dynamic call tracking enabled. You can only add vacant numbers without the flag "Use in hosted PBX" to the dynamic call tracking pool. By default, you can do this in the same code as a campaign's block number. If you don't have enough numbers, they will be automatically purchased.
+            By default, calls to numbers from the dynamic call tracking pool will be processed according to the rules of processing the calls to a block number of an advertising campaign.
+            <blockquote>Can have value "true", if the parameter <code>phone_number_id = va | call_tracking</code>. If it's not the case, an error with mnemonics
+            "invalid_parameters_combination"</blockquote> will return
+            <blockquote>
+            If you use this parameter, but you don't have the component dynamic_call_tracking", an error with mnemonics "parameter_component_disabled" will return
+            </blockquote>
+
+            <blockquote>
+            If at the same time the parameter <code>status = inactive</code> is given, the error `invalid_parameters_combination` will return
+            </blockquote>
+
+            <blockquote>
+            If the parameter <code>dynamic_call_tracking_enabled</code> has value "true", the parameter <code>dynamic_call_tracking</code> must be filled in. Otherwise th error "invalid_parameters_combination" will return.
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Dynamic call tracking</td>
+        </tr>
+        <tr>
+            <td><code>dynamic_call_tracking</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Setting dynamic call tracking.
+            <blockquote>
+            Must be filled in, if the parameter <code>dynamic_call_tracking_enabled</code> in one block at least has value "true". Otherwise an error with mnemonics "invalid_parameters_combination" will return
+            </blockquote>
+            <blockquote>
+            If you use this parameter but don't have the component "dynamic_call_tracking", an error with mnemonics "parameter_component_disabled" will return
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>reservation_time</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+                <ul>
+                <li>5m</li>
+                <li>10m</li>
+                <li>15m</li>
+                <li>20m</li>
+                <li>30m</li>
+                <li>1h</li>
+                <li>2h</li>
+                <li>4h</li>
+                <li>8h</li>
+                <li>1d</li>
+                <li>1w</li>
+                </ul>
+            </td>
+            <td>
+            Default value is "15m". <br>
+            Time period, for which a number will be appointed to a website visitor.
+            As the time is up, the number gets appointed to another visitor (or, if there are some vacant call tracking numbers left, it stays the same).
+            </td>
+        </tr>
+        <tr>
+            <td><code>count_virtual_numbers</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td>minimum value 1</td>
+            <td>
+            Quantity of numbers required for call tracking to work in a block. The numbers will be purchased.
+            </td>
+        </tr>
+        <tr>
+            <td><code>count_visits</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td>minimum value is 1</td>
+            <td>
+            A number of visits from a campaign per day
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Setting group conditions</td>
+        </tr>
+        <tr>
+            <td><code>group_conditions</code></td>
+            <td>array</td>
+            <td>yes</td>
+            <td>Maximum number of groups is 30</td>
+            <td>
+                Group of campaign's conditions
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Conditions settings</td>
+        </tr>
+        <tr>
+            <td><code>conditions</code></td>
+            <td>array</td>
+            <td>yes</td>
+            <td>Maximum number of conditions per group is 50</td>
+            <td>
+                Advertising campaign's conditions in a group of conditions
+            </td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>enum</td>
+            <td>yes</td>
+            <td>
+                <ul>
+                <li>include</li>
+                <li>exclude</li>
+                </ul>
+            </td>
+            <td>
+                Advertising campaign's conditions in a group of conditions
+                <ul>
+                <li>include - includes</li>
+                <li>exclude - excludes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>campaign_parameter</code></td>
+            <td>enum</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+                For a list of valid values and possible operators refer to a tab <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>value</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+                Value. Some of <code>campaign_parameter</code> may have their own list of valid values. Refer to the tab <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>operator</code></td>
+            <td>enum</td>
+            <td>yes</td>
+            <td> =, sub, ~</td>
+            <td>
+                Operator in a condition. Depends on the current parameter <code>campaign_parameter</code>. Refer to <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+                    <ul>
+                    <li>"=" - closely matches</li>
+                    <li>"sub" - includes</li>
+                    <li>"~" - regular expression</li>
+                    </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="parameters-of-a-reply_2">Parameters of a reply</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>id</code></td>
+<td align="left">number</td>
+<td align="center">yes</td>
+<td align="left">Unique ID of an advertising campaign</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-request-structure_4">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;method&quot;: &quot;create.campaigns&quot;,
+  &quot;params&quot;: {
+    &quot;access_token&quot;: &quot;string&quot;,
+    &quot;user_id&quot;: &quot;number&quot;,
+    &quot;description&quot;: &quot;string&quot;,
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;status&quot;: &quot;enum&quot;,
+    &quot;site_id&quot;: &quot;number&quot;,
+    &quot;site_blocks&quot;: [
+      {
+        &quot;site_block_id&quot;: &quot;number&quot;,
+        &quot;phone_number_id&quot;: &quot;number&quot;,
+        &quot;redirection_phone_number_id&quot;: &quot;number&quot;,
+        &quot;dynamic_call_tracking_enabled&quot;: &quot;boolean&quot;
+      }
+    ],
+    &quot;dynamic_call_tracking&quot;: {
+      &quot;reservation_time&quot;: &quot;enum&quot;,
+      &quot;count_virtual_numbers&quot;: &quot;number&quot;,
+      &quot;count_visits&quot;: &quot;number&quot;
+    },
+    &quot;campaign_conditions&quot;: {
+      &quot;group_conditions&quot;: [
+        {
+          &quot;conditions&quot;: [
+            {
+              &quot;type&quot;: &quot;enum&quot;,
+              &quot;campaign_parameter&quot;: &quot;enum&quot;,
+              &quot;operator&quot;: &quot;enum&quot;,
+              &quot;value&quot;: &quot;string&quot;
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_4">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;data&quot;: {
+      &quot;id&quot;: &quot;number&quot;
+    },
+    &quot;metadata&quot;: {
+
+    }
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_4">List of returning errors</h3>
+<p>Refer to the section <a href="..#_changeErrors">"List of errors for the methods with the verb create"</a></p>
+<h2 id="updating-advertising-campaigns">Updating advertising campaigns</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>update.campaigns</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Updating an advertising campaign. <blockquote>You can only update 'basic' advertising campaigns.</blockquote></td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<blockquote>You can update campaigns partially. If you're updating a data bulk, it will replace an existing one.</blockquote>
+<blockquote>In system advertising campaigns (with <code>id = -1</code>) as well as in integrated campaigns you can only update the fields <code>site_blocks</code> and <code>dynamic_call_tracking</code></blockquote>
+
+<h3 id="parameters-of-a-request_2">Parameters of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Valid value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Unique user ID of a customer or an agent that makes a request. <blockquote>Is mandatory for agent</blockquote> To get a list of a customer's users you need to use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a>
+            </td>
+        </tr>
+            <tr>
+            <td><code>id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+            Unique ID of an advertising campaign
+            </td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td></td>
+            <td>Name of an advertising campaign</td>
+        </tr>
+        <tr>
+            <td><code>description</code></td>
+            <td>string</td>
+            <td>no</td>
+            <td>Maximum 255 symbol</td>
+            <td>Description of an advertising campaign</td>
+        </tr>
+        <tr>
+            <td><code>status</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+                <ul>
+                <li>active</li>
+                <li>inactive</li>
+                </ul>
+            </td>
+            <td>Status of an advertising campaign
+                <blockquote>
+                If a campaign with set blocks has been marked as "inactive", all the blocks' settings will be reset.
+                </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>site_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>Unique ID of a website
+            <blockquote>
+            You can not update <code>site_id</code> for exsisting advertising campaign.
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>campaign_conditions</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>Conditions of an advertising campaign.</td>
+        </tr>
+        <tr>
+            <td colspan="5">Settings to bind a number to a site block</td>
+        </tr>
+        <tr>
+            <td><code>site_blocks</code></td>
+            <td>array</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Settings to bind a number to a site block
+            <blockquote>
+            If there is no set block in a list, it will be reset when you update an advertising campaign.
+            </blockquote>
+
+            <blockquote>
+            If a campaign is inactive (<code>status = inactive</code>), you can not change this parameter. The error `invalid_parameters_combination` will return.
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>site_block_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+            Unique ID of a site block
+            </td>
+        </tr>
+        <tr>
+            <td><code>phone_number_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+            Unique Id of a virtual number. To receive a list of availibale virtual numbers, you need to use the method <a href="#_campaignAvailablePhoneNumbers">get.campaign_available_phone_numbers</a>
+            <blockquote>
+            If an <code>id</code> does not return via the method <a href="#_campaignAvailablePhoneNumbers">get.campaign_available_phone_numbers</a>, an error with mnemonics "entity_not_found" will return. 
+            </blockquote>
+            <blockquote>
+            Number with <code>type = call_tracking</code> can only be used in a single advertising campaign. If the number is already in use in another campaign, the error `already_in_use` will return.
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>redirection_phone_number_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Unique ID of a redirection number. A redirection number is used only if the parameter <code>phone_number_id</code> has value `call_tracking`. You can access a list of available numbers via the method <a href="#_campaignAvailableRedirectionPhoneNumbers">get.campaign_available_redirection_phone_numbers</a>.
+            <br>
+            <blockquote>
+            Must be filled in if the parameter <code>phone_number_id</code> has virtual number with the type "call_tracking".
+            If it's not the case, an error with mnemonics "required_parameter_missed" will return.
+            </blockquote>
+            <blockquote>
+            If the parameter is given, and <code>phone_number_id</code> has a virtual number with the type "va", the error `invalid_parameters_combination` will return.
+            </blockquote>
+            <blockquote>
+            A parameter can contain only redirection numbers that return via the method <a href="#_campaignAvailableRedirectionPhoneNumbers">get.campaign_available_redirection_phone_numbers</a>.
+            If it's not the case, an error with mnemonics "invalid_parameter_value" will return
+            </blockquote>
+            <blockquote>
+            Is availiable if the component "va" is active. If a parameter is filled and, and you don't have the component "va", an error with mnemonics "parameter_component_disabled" will return
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>dynamic_call_tracking_enabled</code></td>
+            <td>boolean</td>
+            <td>no</td>
+            <td>true, false</td>
+            <td>
+            Enabling dynamic call tracking. You can only add vacant numbers, without a flag "used in hosted PBX", into your dynamic call tracking pool. By default, you can do this in the same code as a campaign's block number. If you don't have enough numbers, they will be purchased automatically.
+            By default, calls to numbers from the dynamic call tracking pool will be processed according to the rules of processing the calls to a block number of an advertising campaign.
+            <blockquote>Can have value "true", if the parameter <code>phone_number_id = va | call_tracking</code>. If it's not the case, an error with mnemonics
+            "invalid_parameters_combination"</blockquote> will return
+            <blockquote>
+            If you use this parameter, but you don't have the component dynamic_call_tracking", an error with mnemonics "parameter_component_disabled" will return
+            </blockquote>
+
+            <blockquote>
+            If at the same time the parameter <code>status = inactive</code> is given, the error `invalid_parameters_combination` will return
+            </blockquote>
+
+            <blockquote>
+            If the parameter <code>dynamic_call_tracking_enabled</code> has value "true", the parameter <code>dynamic_call_tracking</code> must be filled in. Otherwise th error "invalid_parameters_combination" will return.
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>cost_ratio</code></td>
+            <td>number</td>
+            <td>minimum value 1</td>
+            <td></td>
+            <td>Ratio that influence `costs`</td>
+        </tr>
+        <tr>
+            <td><code>cost_ratio_operator</code></td>
+            <td>enum</td>
+            <td>
+                <ul>
+                    <li>wo_changes</li>
+                    <li>multiply</li>
+                    <li>divide</li>
+                </ul>
+            </td>
+            <td></td>
+            <td>Operator is ised in the paramatr `costs` with `cost_ratio`</td>
+        </tr>
+        <tr>
+            <td colspan="5">Dynamic call tracking</td>
+        </tr>
+        <tr>
+            <td><code>dynamic_call_tracking</code></td>
+            <td>object</td>
+            <td>no</td>
+            <td></td>
+            <td>
+            Dynamic call tracking.
+            <blockquote>
+            Must be filled in if the parameter <code>dynamic_call_tracking_enabled</code> of at least one block has value "true". Otherwuse an error with mnemonics  "invalid_parameters_combination" will return.
+            </blockquote>
+            <blockquote>
+            If you use this parameter, but you don't have the component dynamic_call_tracking", an error with mnemonics "parameter_component_disabled" will return.
+            </blockquote>
+            </td>
+        </tr>
+        <tr>
+            <td><code>reservation_time</code></td>
+            <td>enum</td>
+            <td>no</td>
+            <td>
+                <ul>
+                <li>5m</li>
+                <li>10m</li>
+                <li>15m</li>
+                <li>20m</li>
+                <li>30m</li>
+                <li>1h</li>
+                <li>2h</li>
+                <li>4h</li>
+                <li>8h</li>
+                <li>1d</li>
+                <li>1w</li>
+            </ul>
+            </td>
+            <td>Time period, for which a number will be appointed to a website visitor.
+            As the time is up, the number gets appointed to another visitor (or, if there are some vacant call tracking numbers left, it stays the same).
+            </td>
+        </tr>
+        <tr>
+            <td><code>count_virtual_numbers</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td>minimum value 1</td>
+            <td>
+            Quantity of numbers required for call tracking to work in a block. The numbers will be purchased.
+            </td>
+        </tr>
+        <tr>
+            <td><code>count_visits</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td>minimum value 1</td>
+            <td>
+            Number of visits from the campaign per day
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Group conditions settings</td>
+        </tr>
+        <tr>
+            <td><code>group_conditions</code></td>
+            <td>array</td>
+            <td>yes</td>
+            <td>Maximum number of groups is 30</td>
+            <td>
+                Group of advertising campaign conditions
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">Setting conditions</td>
+        </tr>
+        <tr>
+            <td><code>conditions</code></td>
+            <td>array</td>
+            <td>yes</td>
+            <td>Maximum number of conditions for a group is 50</td>
+            <td>
+                Advertising campaign conditions in a group of conditions
+            </td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>enum</td>
+            <td>yes</td>
+            <td>
+                <ul>
+                <li>include</li>
+                <li>exclude</li>
+                </ul>
+            </td>
+            <td>
+                Advertising campaign conditions in a group of conditions
+                <ul>
+                <li>include - includes</li>
+                <li>exclude - excludes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>campaign_parameter</code></td>
+            <td>enum</td>
+            <td>yes</td>
+            <td></td>
+            <td>
+                For a list of valid values and their operators refer to the tab <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>value</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Value. Some <code>campaign_parameter</code> can have their own list of acceptable values. Refer to the tab <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+            </td>
+        </tr>
+        <tr>
+            <td><code>operator</code></td>
+            <td>enum</td>
+            <td>yes</td>
+            <td> =, sub, ~</td>
+            <td>
+                Operator in a condition. Depends on the current parameter <code>campaign_parameter</code>. Refer to <a href="#_operatorsValuesParameters">"List of parameters and their operators"</a>
+                    <ul>
+                    <li>"=" - closely matches</li>
+                    <li>"sub" - includes</li>
+                    <li>"~" - regular expression</li>
+                    </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_5">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;method&quot;: &quot;update.campaigns&quot;,
+  &quot;params&quot;: {
+    &quot;access_token&quot;: &quot;string&quot;,
+    &quot;user_id&quot;: &quot;number&quot;,
+    &quot;description&quot;: &quot;string&quot;,
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;status&quot;: &quot;enum&quot;,
+    &quot;cost_ratio&quot;: &quot;number&quot;,
+    &quot;cost_ratio_operator&quot;: &quot;enum&quot;,
+    &quot;id&quot;: &quot;number&quot;,
+    &quot;site_id&quot;: &quot;number&quot;,
+    &quot;site_blocks&quot;: [
+      {
+        &quot;site_block_id&quot;: &quot;number&quot;,
+        &quot;phone_number_id&quot;: &quot;number&quot;,
+        &quot;redirection_phone_number_id&quot;: &quot;number&quot;,
+        &quot;dynamic_call_tracking_enabled&quot;: &quot;boolean&quot;
+      }
+    ],
+    &quot;dynamic_call_tracking&quot;: {
+      &quot;reservation_time&quot;: &quot;enum&quot;,
+      &quot;count_virtual_numbers&quot;: &quot;number&quot;,
+      &quot;count_visits&quot;: &quot;number&quot;
+    },
+    &quot;campaign_conditions&quot;: {
+      &quot;group_conditions&quot;: [
+        {
+          &quot;conditions&quot;: [
+            {
+              &quot;type&quot;: &quot;enum&quot;,
+              &quot;campaign_parameter&quot;: &quot;enum&quot;,
+              &quot;operator&quot;: &quot;enum&quot;,
+              &quot;value&quot;: &quot;string&quot;
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_5">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;data&quot;: {
+
+    },
+    &quot;metadata&quot;: {
+
+    }
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_5">List of returning errors</h3>
+<p>Refer to <a href="..#_changeErrors">"List of errors for methods with the verb update"</a></p>
+<h2 id="getting-advertising-campaign-parameter-weights">Getting advertising campaign parameter weights</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>get.campaign_parameter_weights</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Getting advertising campaign parameter weights. System of weights is needed to specify which campaign should be linked to a visit. If a visit is linked to several campaigns, the system will choose a campaign with the highest value as according to the weights scale.</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_3">Parameters of a request</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Type</th>
+<th align="center">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>access_token</code></td>
+<td align="left">string</td>
+<td align="center">yes</td>
+<td align="left">Authentication session key</td>
+</tr>
+<tr>
+<td align="left"><code>user_id</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Unique user ID of a customer or an agent who makes request. <blockquote>Is required for an agent.</blockquote> To a get a list of customer users you need to use the method  <a href="../Partners/#get_customer_user">"get.customer_user"</a></td>
+</tr>
+<tr>
+<td align="left"><code>limit</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Number of returning entries. Refer to <a href="..#_paging">"Pagination"</a></td>
+</tr>
+<tr>
+<td align="left"><code>offset</code></td>
+<td align="left">number</td>
+<td align="center">no</td>
+<td align="left">Offset, that defines: entries from which number to return, <code>"limit"</code> of entries. Default value is "0". Refer to <a href="..#_paging">"Page-oriented output"</a></td>
+</tr>
+<tr>
+<td align="left"><code>filter</code></td>
+<td align="left">object</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_filters">"Filtering criteria"</a></td>
+</tr>
+<tr>
+<td align="left"><code>fields</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_views">"Providing returning data"</a></td>
+</tr>
+<tr>
+<td align="left"><code>sort</code></td>
+<td align="left">array</td>
+<td align="center">no</td>
+<td align="left">Refer to <a href="..#_sort">"Data sorting"</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-reply_3">Parameters of a reply</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Valid value</th>
+            <th>Filtering</th>
+            <th>Sorting</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>site_id</code></td>
+            <td>number</td>
+            <td></td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>Unique website ID</td>
+        </tr>
+        <tr>
+            <td><code>site_domain_name</code></td>
+            <td>string</td>
+            <td></td>
+            <td>yes</td>
+            <td></td>
+            <td>Website address without protocol - "http://" or "https://"</td>
+        </tr>
+        <tr>
+            <td><code>entrance_page</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "10". Entrance page</td>
+        </tr>
+        <tr>
+            <td><code>referrer_domain</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "20". Referrer domain</td>
+        </tr>
+        <tr>
+            <td><code>search_engine</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "20". Search engine</td>
+        </tr>
+        <tr>
+            <td><code>search_query</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "40". Search query</td>
+        </tr>
+        <tr>
+            <td><code>engine</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "25". Advertising engine</td>
+        </tr>
+        <tr>
+            <td><code>referrer</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "30". Referrer</td>
+        </tr>
+        <tr>
+            <td><code>channel</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "15". Channel</td>
+        </tr>
+        <tr>
+            <td><code>location</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "5". Value for weight of the following parameters: city, region, country</td>
+        </tr>
+        <tr>
+            <td><code>utm_tags</code></td>
+            <td>number</td>
+            <td>from 0 ro 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "60". Value for weight of the following parameters: utm_source, utm_medium, utm_campaign, utm_term, utm_content</td>
+        </tr>
+        <tr>
+            <td><code>os_tags</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "50". Value for weight of the following parameters: openstat_service, openstat_campaign, openstat_source, openstat_ad</td>
+        </tr>
+        <tr>
+            <td><code>other_tags</code></td>
+            <td>number</td>
+            <td>from 0 to 100</td>
+            <td></td>
+            <td></td>
+            <td>Default value is "60". Value for weight of the following parameters: ef_id, yclid, gclid, ymclid</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_6">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.campaign_parameter_weights&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;string&quot;,
+    &quot;user_id&quot;:&quot;number&quot;,
+    &quot;offset&quot;:&quot;number&quot;,
+    &quot;limit&quot;:&quot;number&quot;,
+    &quot;filter&quot;:{
+
+    },
+    &quot;sort&quot;:[
+      {
+        &quot;field&quot;:&quot;string&quot;,
+        &quot;order&quot;:&quot;string&quot;
+      }
+    ],
+    &quot;fields&quot;:[
+      &quot;string&quot;
+    ]
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_6">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;metadata&quot;: {
+
+    },
+    &quot;data&quot;: [
+      {
+        &quot;site_id&quot;: &quot;number&quot;,
+        &quot;site_domain_name&quot;: &quot;string&quot;,
+        &quot;entrance_page&quot;: &quot;number&quot;,
+        &quot;referrer_domain&quot;: &quot;number&quot;,
+        &quot;search_engine&quot;: &quot;number&quot;,
+        &quot;search_query&quot;: &quot;number&quot;,
+        &quot;engine&quot;: &quot;number&quot;,
+        &quot;referrer&quot;: &quot;number&quot;,
+        &quot;channel&quot;: &quot;number&quot;,
+        &quot;location&quot;: &quot;number&quot;,
+        &quot;utm_tags&quot;: &quot;number&quot;,
+        &quot;os_tags&quot;: &quot;number&quot;,
+        &quot;other_tags&quot;: &quot;number&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_6">List of returning errors</h3>
+<p>Refer to <a href="..#_getErrors">"List of errors common for methods with the verb get"</a></p>
+<h2 id="updating-advertising-campaign-parameter-weights">Updating advertising campaign parameter weights</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><code>update.campaign_parameter_weights</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Updating advertising campaign parameter weights. The system defines which campaign should be linked to a visit. If a visit is linked to several campaigns, the system will choose a campaign with the highest value as according to the weights scale.</td>
+</tr>
+<tr>
+<td align="left">Who has access</td>
+<td align="left">Agent, Customer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-of-a-request_4">Parameters of a request</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Valid value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>access_token</code></td>
+            <td>string</td>
+            <td>yes</td>
+            <td></td>
+            <td>Authentication session key</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td></td>
+            Unique user ID of a customer or an agent that makes a request. <blockquote>Is mandatory for agent</blockquote> To get a list of a customer's users you need to use the method <a href="../Partners/#get_customer_user">"get.customer_users"</a></td>
+        </tr>
+        <tr>
+            <td><code>site_id</code></td>
+            <td>number</td>
+            <td>yes</td>
+            <td></td>
+            <td>Unique website ID</td>
+        </tr>
+        <tr>
+            <td><code>entrance_page</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Entrance page</td>
+        </tr>
+        <tr>
+            <td><code>referrer_domain</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Referrer domain</td>
+        </tr>
+        <tr>
+            <td><code>search_engine</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Search engine</td>
+        </tr>
+        <tr>
+            <td><code>search_query</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Search query</td>
+        </tr>
+        <tr>
+            <td><code>engine</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Advertising engine</td>
+        </tr>
+        <tr>
+            <td><code>referrer</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Referrer</td>
+        </tr>
+        <tr>
+            <td><code>channel</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Channel</td>
+        </tr>
+        <tr>
+            <td><code>location</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Value for weight of the following parameters: city, region, country</td>
+        </tr>
+        <tr>
+            <td><code>utm_tags</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Value for weight of the following parameters: utm_source, utm_medium, utm_campaign, utm_term, utm_content</td>
+        </tr>
+        <tr>
+            <td><code>os_tags</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Value for weight of the following parameters: openstat_service, openstat_campaign, openstat_source, openstat_ad</td>
+        </tr>
+        <tr>
+            <td><code>other_tags</code></td>
+            <td>number</td>
+            <td>no</td>
+            <td>from 0 to 100</td>
+            <td>Value for weight of the following parameters: ef_id, yclid, gclid, ymclid</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="json-request-structure_7">JSON request structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;method&quot;: &quot;update.campaign_parameter_weights&quot;,
+  &quot;params&quot;: {
+    &quot;access_token&quot;: &quot;string&quot;,
+    &quot;user_id&quot;: &quot;number&quot;,
+    &quot;site_id&quot;: &quot;number&quot;,
+    &quot;other_tags&quot;: &quot;number&quot;,
+    &quot;search_query&quot;: &quot;number&quot;,
+    &quot;ad_engine&quot;: &quot;number&quot;,
+    &quot;referrer&quot;: &quot;number&quot;,
+    &quot;channel&quot;: &quot;number&quot;,
+    &quot;entrance_page&quot;: &quot;number&quot;,
+    &quot;location&quot;: &quot;number&quot;,
+    &quot;utm_tags&quot;: &quot;number&quot;,
+    &quot;os_tags&quot;: &quot;number&quot;,
+    &quot;referrer_domain&quot;: &quot;number&quot;,
+    &quot;search_engine&quot;: &quot;number&quot;
+  }
+}
+</code></pre>
+<h3 id="json-reply-structure_7">JSON reply structure</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &quot;number&quot;,
+  &quot;result&quot;: {
+    &quot;data&quot;: {
+
+    },
+    &quot;metadata&quot;: {
+
+    }
+  }
+}
+</code></pre>
+<h3 id="list-of-returning-errors_7">List of returning errors</h3>
+<p>Refer to section <a href="..#_changeErrors">"List of errors common for methods with the verb update"</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../UserMedia/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Media
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Sites/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Sites
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+      
+        <script src="../js/init.js"></script>
+      
+    
+  </body>
+</html>
