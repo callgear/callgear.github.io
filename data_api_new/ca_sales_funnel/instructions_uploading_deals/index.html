@@ -1,0 +1,1272 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Instructions for downloading transactions from CRM - DATA API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DATA API" class="md-header__button md-logo" aria-label="DATA API" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DATA API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instructions for downloading transactions from CRM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DATA API" class="md-nav__button md-logo" aria-label="DATA API" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DATA API
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        General Information
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        Permissions and Components
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../account/get_account/" class="md-nav__link">
+        Account
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vn/" class="md-nav__link">
+        Virtual Numbers and Rules
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sip/" class="md-nav__link">
+        SIP Lines
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenario/get_scenarios/" class="md-nav__link">
+        Scenarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_media/get_media_files/" class="md-nav__link">
+        Media Files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../campaigns/" class="md-nav__link">
+        Ad Campaigns
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sources/" class="md-nav__link">
+        Sources
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../auto_calls/" class="md-nav__link">
+        Outbound Calls
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sales_funnel_and_deals/" class="md-nav__link">
+        Sales Funnels and Deals
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/" class="md-nav__link">
+        Sites
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/" class="md-nav__link">
+        Reports
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        Tags
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../employees/" class="md-nav__link">
+        Employees
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contacts/" class="md-nav__link">
+        Contacts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blacklist/" class="md-nav__link">
+        Blacklist
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedules/" class="md-nav__link">
+        Schedules
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../partners/" class="md-nav__link">
+        Agents' Customers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../communications/" class="md-nav__link">
+        Communications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../persons/" class="md-nav__link">
+        Person / Visitor
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+     Intro 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-transferring-the-structure-of-your-crm-to-callgear" class="md-nav__link">
+     1. Transferring the structure of your CRM to CallGear 
+  </a>
+  
+    <nav class="md-nav" aria-label=" 1. Transferring the structure of your CRM to CallGear ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-creating-a-sales-funnel-structure" class="md-nav__link">
+     1.1 Creating a sales funnel structure: 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-creating-contacts" class="md-nav__link">
+     1.3 Creating contacts 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configure-end-to-end-analytics-by-connecting-integration-with-crm-in-your-callgear-personal-account-in-the-integration-tab-using-the-other-crm-button" class="md-nav__link">
+     3. Configure  end-to-end analytics  by connecting integration with CRM in your CallGear personal account in the integration tab using the “Other CRM” button. 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-the-necessary-data-for-display-and-analysis-in-analytical-reports" class="md-nav__link">
+     4. Configure the necessary data for display and analysis in  analytical reports. 
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Instructions for downloading transactions from CRM</h1>
+                
+                <nav>
+<a href="../../sales_funnel_and_deals">Sales Funnels and Deals </a>
+</nav>
+
+<h3 id="intro"><b> Intro </b></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><b>Deal</b></td>
+<td align="left">A sales card that goes through the stages of the sales funnel.</td>
+</tr>
+<tr>
+<td align="left"><b> Contact </b></td>
+<td align="left">Customer card from your CRM system.</td>
+</tr>
+<tr>
+<td align="left"><b> Sales funnel </b></td>
+<td align="left">It consists of the stages that a transaction goes through from creation to successful completion (for example, payment).</td>
+</tr>
+<tr>
+<td align="left"><b> Stage </b></td>
+<td align="left">The part of the sales funnel that a deal takes through a company's sales process.</td>
+</tr>
+<tr>
+<td align="left"><b> Responsible employee </b></td>
+<td align="left">An employee in CRM responsible for a specific transaction.</td>
+</tr>
+</tbody>
+</table>
+<div> To analyze the effectiveness of advertising campaigns before the transaction and profit in analytical reports
+you need to upload transactions from your CRM to your CallGear personal account. </div>
+<div> You can do this by connecting <a href="https://help.callgear.com/knowledge-bases/12/articles/2810-podklyuchenie-i-nastrojka-optsii-skvoznaya-analitika">“End-to-end analytics”</a> and setting up
+integration with CRM using ready-made solutions (
+<a href="https://help.callgear.com/knowledge-bases/12/articles/1874-podklyuchenie-integratsii-bitriks24">"Bitrix24" </a>,
+<a href="https://help.callgear.com/knowledge-bases/12/articles/2280-podklyuchenie-integratsii-s-amocrm"> "amoCRM" </a>
+or
+<a href="https://help.callgear.com/knowledge-bases/12/articles/2446-integratsiya-s-mis-infoklinika"> "MIS Infoclinic" </a>),
+where the transfer of transactions to CallGear is implemented. </div>
+<div>If you have another CRM system, then you can use
+API and configure the integration yourself.
+</div>
+
+<p><b> To set up integration via API you need: </b></p>
+<ol>
+<li> Create a CRM structure in CallGear
+    <ul>
+        <li>Pass the structure of each sales funnel</li>
+        <li>Submit a list of employees and persons responsible for each transaction</li>
+        <li>Send contact list</li>
+    </ul></li>
+<li>Load transaction history </li>
+<li> Configure <a href="https://help.callgear.com/knowledge-bases/12/articles/2812-skvoznaya-analitika-drugaya-crm"> end-to-end analytics </a> </li>
+<li> Set up the necessary data for analysis in <a href=https://help.callgear.com/knowledge-bases/12/articles/1539-otchet-skvoznaya-analitika#sect_1>analytic reports </a> </li>
+</ol>
+
+<p><br> <b> Using a test client as an example, let's look at how to transfer transactions and other necessary data from your CRM. </b></p>
+<table>
+   <tr>
+      <th>Example</span></span></th>
+      <th>Transfer of transactions and other data from CRM</th>
+   </tr>
+   <tr>
+      <td>Description</td>
+      <td> <b>Name of the funnel:</b> "Main funnel".
+       <br> <b>Sales funnel structure:</b>
+           <ul>
+                <li> stage 1 - “New deal” </li>
+                <li> stage 2 - "Preparation of documents" </li>
+                <li> stage 3 - “Invoice for prepayment” </li>
+                <li> stage 4 - "Final score" </li>
+                <li>successful stage - “Successfully implemented”</li>
+                <li> failed stage - “Deal failed”</li>
+            </ul>
+        <b>Funnel elements:</b>
+            <div>2 responsible employees<div>
+            <div>3 contacts
+            <div>3 trades:
+            <ul><li>deal 1: went through all stages and closed with a sale </li>
+                <li>deal 2: passed the first stage and failed </li>
+                <li>transaction 3: reached the “Invoice for prepayment” stage </li>
+            </ul>
+            <div> Each transaction has a contact and a responsible employee. </div>
+         <br>
+      </td>
+   </tr>
+</table>
+
+<h3 id="1-transferring-the-structure-of-your-crm-to-callgear"><b> 1. Transferring the structure of your CRM to CallGear </b></h3>
+<h4 id="11-creating-a-sales-funnel-structure"><b> 1.1 Creating a sales funnel structure: </b></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><a href="../create_sales_funnel" style="color:white">create.sales_funnel </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Creating a sales funnel and its stages</td>
+</tr>
+<tr>
+<td align="left">Available to</td>
+<td align="left">Agent, Client</td>
+</tr>
+<tr>
+<td align="left">В запросе "Порядковый номер этапа" указан как 10, 20, 30, 40.</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>Это сделано, для того чтобы в будущем вы смогли добавить промежуточные этапы
+без редактирования  всей воронки.
+Допустим, в CRM поменялась структура воронки, и добавился этап
+"Подписание документов" между этапами "Подготовка Документов"
+и "Счет на предоплату". Вы легко можете добавить этап "Подписание документов"
+с порядковым номером от 21 до 29. Но лучше 25.</p>
+<p>Максимальный номер этапа = 10000</p>
+<pre><code>JSON request structure```json
+{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: 1,
+    &quot;method&quot;: &quot;create.sales_funnel&quot;,
+    &quot;params&quot;: {
+        &quot;access_token&quot;: &quot;${#Project#auth_prod_4735}&quot;,
+        &quot;ext_id&quot;: &quot;1&quot;,
+        &quot;name&quot;: &quot;Основная воронка&quot;,
+        &quot;stages&quot;: {
+            &quot;success&quot;: {
+                &quot;ext_id&quot;: &quot;1000&quot;,
+                &quot;name&quot;: &quot;Успешно реализовано&quot;
+            },
+            &quot;failed&quot;: {
+                &quot;ext_id&quot;: &quot;10001&quot;,
+                &quot;name&quot;: &quot;Сделка провалена&quot;
+            },
+            &quot;in_process&quot;: [
+                {
+                    &quot;ext_id&quot;: &quot;1&quot;,
+                    &quot;name&quot;: &quot;Новая сделка&quot;,
+                    &quot;order&quot;: 10
+                },
+                {
+                    &quot;ext_id&quot;: &quot;2&quot;,
+                    &quot;name&quot;: &quot;Подготовка Документов&quot;,
+                    &quot;order&quot;: 20
+                },
+                {
+                    &quot;ext_id&quot;: &quot;3&quot;,
+                    &quot;name&quot;: &quot;Счет на предоплату&quot;,
+                    &quot;order&quot;: 30
+                },
+                {
+                    &quot;ext_id&quot;: &quot;4&quot;,
+                    &quot;name&quot;: &quot;Финальный счет&quot;,
+                    &quot;order&quot;: 40
+                }
+            ]
+        }
+    }
+}
+
+</code></pre>
+<p>The response will return the ID of the created funnel.</p>
+<p>JSON response structure```json
+{
+   "result":    {
+      "metadata": {"limits":    {
+         "minute_reset": 23,
+         "minute_remaining": 199,
+         "minute_limit": 200,
+         "day_reset": 35483,
+         "day_remaining": 3319,
+         "day_limit": 3500
+      }},
+      "data":       {
+         "ext_id": "1"
+      }
+   },
+   "id": 1,
+   "jsonrpc": "2.0"
+}</p>
+<pre><code>&lt;b&gt; Checking the funnel structure: &lt;/b&gt;
+
+| Method | &lt;a href=&quot;../get_sales_funnel&quot; style=&quot;color:white&quot;&gt;get.sales_funnel&lt;/a&gt; |
+| :----------- | :------------------------------ |
+| Description | Getting a list of sales funnels |
+| Available to | Agent, Client |
+
+JSON request structure```json
+{
+  &quot;jsonrpc&quot;:&quot;2.0&quot;,
+  &quot;id&quot;:&quot;number&quot;,
+  &quot;method&quot;:&quot;get.sales_funnel&quot;,
+  &quot;params&quot;:{
+    &quot;access_token&quot;:&quot;${#Project#auth_prod_4735}&quot;,
+    &quot;filter&quot;:{
+      &quot;field&quot;:&quot;ext_id&quot;,
+      &quot;operator&quot;:&quot;=&quot;,
+      &quot;value&quot;:&quot;1&quot;
+    }
+  }
+}
+</code></pre>
+<p>JSON response structure```json
+{
+   "result":    {
+      "metadata":       {
+         "limits":          {
+            "minute_reset": 39,
+            "minute_remaining": 199,
+            "minute_limit": 200,
+            "day_reset": 35139,
+            "day_remaining": 3305,
+            "day_limit": 3500
+         },
+         "total_items": 1
+      },
+      "data": [     {
+         "ext_id": "1",
+         "name": "Основная воронка",
+         "stages":          [
+                        {
+               "stage_name": "Новая сделка",
+               "stage_ext_id": "1",
+               "stage_status": "in_process",
+               "stage_order": 10
+            },
+                        {
+               "stage_name": "Подготовка Документов",
+               "stage_ext_id": "2",
+               "stage_status": "in_process",
+               "stage_order": 20
+            },
+                        {
+               "stage_name": "Счет на предоплату",
+               "stage_ext_id": "3",
+               "stage_status": "in_process",
+               "stage_order": 30
+            },
+                        {
+               "stage_name": "Финальный счет",
+               "stage_ext_id": "4",
+               "stage_status": "in_process",
+               "stage_order": 40
+            },
+                        {
+               "stage_name": "Успешно реализовано",
+               "stage_ext_id": "1000",
+               "stage_status": "success",
+               "stage_order": 10010
+            },
+                        {
+               "stage_name": "Сделка провалена",
+               "stage_ext_id": "10001",
+               "stage_status": "failed",
+               "stage_order": 10020
+            }
+         ]
+      }]
+   },
+   "id": "number",
+   "jsonrpc": "2.0"
+}</p>
+<pre><code>If necessary, you can rename the sales funnel using the method
+&lt;a href=&quot;../update_sales_funnel&quot;&gt;update.sales_funnel &lt;/a&gt; and edit the stages,
+ using the &lt;a href=&quot;../update_sales_funnel_stages&quot;&gt;update.sales_funnel_stages method. &lt;/a&gt;
+
+#### &lt;b&gt; 1.2 Creating a list of employees responsible for transactions &lt;/b&gt;```sh
+Если вы не хотите анализировать РК в разрезе по сотрудникам,
+то можно пропустить этот пункт
+</code></pre>
+<p>Example:
+<br>Adding two employees</p>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><a href="../../ca_employee/create_deal_employees" style="color:white">create.deal_employees</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Creating/adding a responsible employee</td>
+</tr>
+<tr>
+<td align="left">Available to</td>
+<td align="left">Agent, Client</td>
+</tr>
+</tbody>
+</table>
+<p>JSON request structure
+<br>Request 1```json
+{
+    "jsonrpc": "2.0",
+    "id": "1",
+    "method": "create.deal_employees",
+    "params": {
+        "access_token":"${#Project#auth_prod_4735}",
+        "ext_id": "EID_0007",
+        "name": "Иванов"
+    }
+}</p>
+<pre><code>Request 2```json
+{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: &quot;2&quot;,
+    &quot;method&quot;: &quot;create.deal_employees&quot;,
+    &quot;params&quot;: {
+        &quot;access_token&quot;:&quot;${#Project#auth_prod_4735}&quot;,
+        &quot;ext_id&quot;: &quot;EBdfID_0008&quot;,
+        &quot;name&quot;: &quot;Сидоров&quot;
+    }
+}
+</code></pre>
+<h4 id="13-creating-contacts"><b> 1.3 Creating contacts </b></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left"><a href="../../ca_contacts/create_deal_contacts" style="color:white">create.deal_contacts</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">Create a contact</td>
+</tr>
+<tr>
+<td align="left">Available to</td>
+<td align="left">Agent, Client</td>
+</tr>
+</tbody>
+</table>
+<p><b> Example: </b></p>
+<div>
+There are 3 contacts in CRM with internal identifiers CID_0001, CID_0002, CID_0003
+</div>
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>ID</code></th>
+<th align="left"><code>Имя</code></th>
+<th><code>телефон</code></th>
+<th><code>email</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CID_0001</td>
+<td align="left">Tin Oleg</td>
+<td>79000000000, 79000000001</td>
+<td>test@example.com, test2@example.com</td>
+</tr>
+<tr>
+<td align="left">CID_0002</td>
+<td align="left">Petrovich</td>
+<td>79000000003</td>
+<td>test3@example.com</td>
+</tr>
+<tr>
+<td align="left">CID_0003</td>
+<td align="left">New client</td>
+<td>79000000004</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>JSON request structure```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "create.deal_contacts",
+    "params": {
+        "access_token": "${#Project#auth_prod_4735}",
+        "contacts": [
+            {
+                "ext_id": "CID_0001",
+                "name": "Оловянный Олег",
+                "created_date_time": "2019-08-02 21:00:01",
+                "phone_numbers": [
+                    "79000000000",
+                    "79000000001"
+                ],
+                "emails": [
+                    "test@example.com",
+                    "test2@example.com"
+                ]
+            },
+            {
+                "ext_id": "CID_0002",
+                "name": "Петрович",
+                "created_date_time": "2019-08-03 12:15:00",
+                "phone_numbers": [
+                    "79000000003"
+                ],
+                "emails": [
+                    "test3@example.com"
+                ]
+            },
+            {
+                "ext_id": "CID_0003",
+                "name": "Новый клиент",
+                "created_date_time": "2019-08-10 10:40:50",
+                "phone_numbers": [
+                    "79000000004"
+                ]
+            }
+        ]
+    }
+}</p>
+<pre><code>###&lt;b&gt;2. Loading transaction history&lt;/b&gt;
+
+To build correct analytics, it is necessary to transmit all the stages that the transaction has gone through, and not just its current stage (at the time of upload).
+
+&lt;div&gt;This can be done in two ways:&lt;/div&gt;
+&lt;ol&gt;
+    &lt;li&gt; Transmit an update on a deal to CRM using a trigger, i.e. upload it to CallGear when one of the events occurs:
+        &lt;ul&gt;
+            &lt;li&gt;Creating a deal&lt;/li&gt;
+            &lt;li&gt;Transfer to another stage&lt;/li&gt;
+            &lt;li&gt;Updating one of the parameters: contact, owner, transaction amount&lt;/li&gt;
+        &lt;/ul&gt;&lt;/li&gt;
+    &lt;li&gt;
+        &lt;div&gt;
+                Once per period (hour, day, week) download the entire history for all transactions at once.
+                For each transaction, transfer all completed stages and the time of transition to each stage.
+        &lt;/div&gt;
+        &lt;div&gt; &lt;br&gt;All transferred transactions are displayed in the &quot;End-to-End Analytics&quot; report cumulatively (that is, all stages that the transaction has passed through are displayed, not just the current one). &lt;/div&gt;
+        &lt;div&gt; &lt;br&gt;If any of the intermediate stages has not been transferred, the system will automatically create it with the flag is_generated = True,
+        this is necessary for correct display in analytical reports. Stage indicators take into account transactions that have passed through this stage. &lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;```sh
+Отдельного метода по созданию и обновлению сделки у нас нет.
+Сделка создается при передачи первой записи по ней, и обновляется
+с каждым новым вызовом метода.
+</code></pre>
+<div>Creating a transaction that went through all stages and closed with a sale:</div>
+<div>JSON request structure </div>
+<p>```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "upload.deals_history",
+    "params": {
+        "access_token": "${#Project#auth}",
+        "deals": [
+            {
+                "ext_id": "DID_0001",
+                "name": "Продажа аннигиляторной пушки",
+                "created_date_time": "2019-08-15 07:07:00",
+                "modified_date_time": "2019-08-15 07:07:00",
+                "modified_stage_date_time": "2019-08-15 07:07:00",
+                "contact_ext_ids": [
+                    "CID_0001"
+                ],
+                "main_contact_ext_id": "CID_0001",
+                "employee_ext_id": "EID_0001",
+                "sales_funnel_ext_id": "SFID_0001",
+                "stage_ext_id": "1",
+                "comments": "Супер сделка"
+            },
+            {
+                "ext_id": "DID_0001",
+                "name": "Продажа аннигиляторной пушки",
+                "created_date_time": "2019-08-15 07:07:00",
+                "modified_date_time": "2019-08-16 07:07:00",
+                "modified_stage_date_time": "2019-08-16 07:07:00",
+                "contact_ext_ids": [
+                    "CID_0001"
+                ],
+                "main_contact_ext_id": "CID_0001",
+                "employee_ext_id": "EID_0002",
+                "sales_funnel_ext_id": "SFID_0001",
+                "revenue": 5000,
+                "stage_ext_id": "2",
+                "comments": "Супер сделка"
+            },
+            {
+                "ext_id": "DID_0001",
+                "name": "Продажа аннигиляторной пушки",
+                "created_date_time": "2019-08-15 07:07:00",
+                "modified_date_time": "2019-08-17 07:07:00",
+                "modified_stage_date_time": "2019-08-17 07:07:00",
+                "contact_ext_ids": [
+                    "CID_0001"
+                ],
+                "main_contact_ext_id": "CID_0001",
+                "sales_funnel_ext_id": "SFID_0001",
+                "stage_ext_id": "3",
+                "comments": "Супер сделка"
+            },
+            {
+                "ext_id": "DID_0001",
+                "name": "Продажа аннигиляторной пушки",
+                "created_date_time": "2019-08-15 07:07:00",
+                "modified_date_time": "2019-08-18 07:07:00",
+                "modified_stage_date_time": "2019-08-18 07:07:00",
+                "contact_ext_ids": [
+                    "CID_0001"
+                ],
+                "main_contact_ext_id": "CID_0001",
+                "sales_funnel_ext_id": "SFID_0001",
+                "stage_ext_id": "4",
+                "comments": "Супер сделка"
+            },
+            {
+                "ext_id": "DID_0001",
+                "name": "Продажа аннигиляторной пушки",
+                "created_date_time": "2019-08-15 07:07:00",
+                "closed_date_time": "2019-08-19 10:07:00",
+                "modified_date_time": "2019-08-19 10:07:00",
+                "modified_stage_date_time": "2019-08-19 10:07:00",
+                "contact_ext_ids": [
+                    "CID_0001"
+                ],
+                "main_contact_ext_id": "CID_0001",
+                "sales_funnel_ext_id": "SFID_0001",
+                "stage_ext_id": "10000",
+                "comments": "Супер сделка"
+            }
+        ]
+    }
+}</p>
+<pre><code>Creating a deal that failed from the first stage:
+
+JSON request structure```json
+{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: 1,
+    &quot;method&quot;: &quot;upload.deals_history&quot;,
+    &quot;params&quot;: {
+        &quot;access_token&quot;: &quot;${#Project#auth}&quot;,
+        &quot;deals&quot;: [
+            {
+                &quot;ext_id&quot;: &quot;DID_0002&quot;,
+                &quot;name&quot;: &quot;Беговел Puky Pukylino&quot;,
+                &quot;created_date_time&quot;: &quot;2019-08-15 07:07:00&quot;,
+                &quot;modified_date_time&quot;: &quot;2019-08-15 07:07:00&quot;,
+                &quot;modified_stage_date_time&quot;: &quot;2019-08-15 07:07:00&quot;,
+                &quot;contact_ext_ids&quot;: [
+                    &quot;CID_0002&quot;
+                ],
+                &quot;main_contact_ext_id&quot;: &quot;CID_0002&quot;,
+                &quot;employee_ext_id&quot;: &quot;EID_0002&quot;,
+                &quot;revenue&quot;: 4250,
+                &quot;sales_funnel_ext_id&quot;: &quot;SFID_0002&quot;,
+                &quot;stage_ext_id&quot;: &quot;1&quot;,
+                &quot;comments&quot;: &quot;Супер сделка&quot;
+            },
+            {
+                &quot;ext_id&quot;: &quot;DID_0002&quot;,
+                &quot;name&quot;: &quot;Беговел Puky Pukylino&quot;,
+                &quot;created_date_time&quot;: &quot;2019-08-15 07:07:00&quot;,
+                &quot;closed_date_time&quot;: &quot;2019-08-19 10:07:00&quot;,
+                &quot;modified_date_time&quot;: &quot;2019-08-19 10:07:00&quot;,
+                &quot;modified_stage_date_time&quot;: &quot;2019-08-19 10:07:00&quot;,
+                &quot;contact_ext_ids&quot;: [
+                    &quot;CID_0002&quot;
+                ],
+                &quot;main_contact_ext_id&quot;: &quot;CID_0002&quot;,
+                &quot;sales_funnel_ext_id&quot;: &quot;SFID_0002&quot;,
+                &quot;stage_ext_id&quot;: &quot;10002&quot;,
+                &quot;comments&quot;: &quot;Не выдерживает необходимый вес&quot;
+            }
+        ]
+    }
+}
+</code></pre>
+<p>Creating a transaction that has reached the "Invoice for prepayment" stage:</p>
+<p>JSON request structure<code>json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "upload.deals_history",
+    "params": {
+        "access_token": "${#Project#auth}",
+        "deals": [
+            {
+                "ext_id": "DID_0003",
+                "name": "Sony PlayStation 4 Slim 500 ГБ",
+                "created_date_time": "2019-08-15 07:07:00",
+                "modified_date_time": "2019-08-15 07:07:00",
+                "modified_stage_date_time": "2019-08-15 07:07:00",
+                "contact_ext_ids": [
+                    "CID_0003"
+                ],
+                "main_contact_ext_id": "CID_0003",
+                "employee_ext_id": "EID_0003",
+                "sales_funnel_ext_id": "SFID_0003",
+                "stage_ext_id": "1"
+            },
+            {
+                "ext_id": "DID_0003",
+                "name": "Sony PlayStation 4 Slim 500 ГБ",
+                "created_date_time": "2019-08-15 07:07:00",
+                "modified_date_time": "2019-08-16 07:07:00",
+                "modified_stage_date_time": "2019-08-16 07:07:00",
+                "contact_ext_ids": [
+                    "CID_0003"
+                ],
+                "main_contact_ext_id": "CID_0003",
+                "employee_ext_id": "EID_0002",
+                "sales_funnel_ext_id": "SFID_0003",
+                "revenue": 17350,
+                "stage_ext_id": "2"
+            },
+            {
+                "ext_id": "DID_0003",
+                "name": "Sony PlayStation 4 Slim 500 ГБ",
+                "created_date_time": "2019-08-15 07:07:00",
+                "modified_date_time": "2019-08-17 07:07:00",
+                "modified_stage_date_time": "2019-08-17 07:07:00",
+                "contact_ext_ids": [
+                    "CID_0003"
+                ],
+                "main_contact_ext_id": "CID_0003",
+                "sales_funnel_ext_id": "SFID_0003",
+                "stage_ext_id": "3",
+                "comments": "В ожидании оплаты"
+            }
+        ]
+    }
+}</code></p>
+<h3 id="3-configure-end-to-end-analytics-by-connecting-integration-with-crm-in-your-callgear-personal-account-in-the-integration-tab-using-the-other-crm-button"><b> 3. Configure <a href="https://help.callgear.com/knowledge-bases/12/articles/2812-skvoznaya-analitika-drugaya-crm"> end-to-end analytics </a> by connecting integration with CRM in your CallGear personal account in the integration tab using the “Other CRM” button. </b></h3>
+<h3 id="4-configure-the-necessary-data-for-display-and-analysis-in-analytical-reports"><b> 4. Configure the necessary data for display and analysis in <a href="https://help.callgear.com/knowledge-bases/12/articles/1539-otchet-skvoznaya-analitika#sect_1"> analytical reports.</a> </b></h3>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+      
+        <script src="../../js/init.js"></script>
+      
+    
+  </body>
+</html>
